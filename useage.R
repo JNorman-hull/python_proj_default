@@ -39,6 +39,8 @@ source_python("03_channel_importance.py")
 
 #source_python("05_run.py")
 
+source_python("06_threshold_comparison.py")
+
 # check conda environments
 #conda_list() 
 

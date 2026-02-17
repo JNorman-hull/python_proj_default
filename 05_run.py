@@ -11,7 +11,7 @@ import seaborn as sns
 # ------------------------------------------------------------------
 MODEL_PATH   = "python_results/binary/final_model_for_deployment.joblib"
 METRICS_PATH = "python_results/binary/performance_metrics.json"
-TRAINING_DATA = "python_data/raw_labeled_data2.csv"   # for sanity check only
+TRAINING_DATA = "python_data/raw_labeled_data2.csv"   # for sanity check only, edit this
 
 # NEW DATA - must be pre-filtered and contain the correct channels
 
@@ -72,11 +72,7 @@ def pad_time_series(ts, target_length):
     return np.vstack([ts, np.tile(ts[-1], (n_pad, 1))])
 
 def load_and_prepare(df, channels, max_length, labeled=True):
-    """
-    Extract time series per file and pad to max_length.
-    Assumes data is already filtered and in the correct format.
-    Requires: 'file', 'time_s' columns + all channel columns.
-    """
+
     if 'file' not in df.columns:
         raise ValueError("Data must have a 'file' column identifying each sensor recording.")
     if 'time_s' not in df.columns:
@@ -182,15 +178,15 @@ if RUN_SANITY_CHECK:
 
     # Pipeline check
     print(f"\n  Pipeline checks:")
-    print(f"    ✓ Model loaded and ran successfully")
-    print(f"    ✓ {len(X_train)} files processed, shape: {X_train.shape}")
-    print(f"    ✓ Training accuracy ({train_acc:.3f}) ≥ CV accuracy ({cv_accuracy:.3f}) [expected]")
+    print(f" Model loaded and ran successfully")
+    print(f" {len(X_train)} files processed, shape: {X_train.shape}")
+    print(f" raining accuracy ({train_acc:.3f}) ≥ CV accuracy ({cv_accuracy:.3f}) [expected]")
 
     if train_acc < cv_accuracy - 0.05:
-        print(f"    ⚠ WARNING: Training accuracy unexpectedly lower than CV.")
-        print(f"      Check that data filtering and channel order match script_01.")
+        print(f"WARNING: Training accuracy unexpectedly lower than CV.")
+        print(f" Check that data filtering and channel order match script_01.")
     else:
-        print(f"    ✓ Performance consistent with expectations")
+        print(f"Performance consistent with expectations")
 
     # Per strike type
     print(f"\n  Per strike type:")
