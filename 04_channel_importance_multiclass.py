@@ -1,14 +1,4 @@
-# ============================================================================
-# script_04_channel_importance_multiclass.py
-# Channel importance analysis for MULTI-CLASS blade strike classifier
-# Mirror of script_03 - use if interested in multiclass channel behaviour
-#
-# PART A: Permutation importance (accuracy-based) on 10-channel multiclass model
-# PART B: Channel ablation study - 3 sensor configurations (multiclass labels)
-#         - Config 1: High-acceleration only      (3 channels)
-#         - Config 2: High-acceleration + pressure (4 channels)
-#         - Config 3: Full sensor suite            (10 channels)
-# ============================================================================
+
 
 import pandas as pd
 import numpy as np
@@ -28,9 +18,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
 
-# ------------------------------------------------------------------
-# Paths
-# ------------------------------------------------------------------
+
 RAW_DATA         = "python_data/raw_labeled_data2.csv"
 MULTICLASS_MODEL = "python_results/multiclass/final_model_for_deployment.joblib"
 METRICS_PATH     = "python_results/multiclass/performance_metrics.json"

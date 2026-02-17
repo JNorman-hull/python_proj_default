@@ -1,16 +1,3 @@
-# ============================================================================
-# script_05_run.py
-# Deploy trained binary blade strike classifier on new sensor data
-#
-# STEP 1 (optional): Sanity check - run model on TRAINING data to confirm
-#                    the pipeline is working as expected.
-#                    NOTE: Training accuracy will be higher than CV metrics
-#                    because the model has seen this data. CV metrics from
-#                    script_01 are the true performance estimate.
-# STEP 2:            Run model on NEW unlabelled sensor data and output
-#                    blade strike predictions with probabilities.
-# ============================================================================
-
 import pandas as pd
 import numpy as np
 import json
@@ -27,6 +14,7 @@ METRICS_PATH = "python_results/binary/performance_metrics.json"
 TRAINING_DATA = "python_data/raw_labeled_data2.csv"   # for sanity check only
 
 # NEW DATA - must be pre-filtered and contain the correct channels
+
 # Expected columns: 'file', 'time_s', + the 10 sensor channels
 NEW_DATA     = "python_data/new_sensor_data.csv"       # <-- edit this
 
@@ -35,10 +23,7 @@ os.makedirs(OUTDIR, exist_ok=True)
 
 # Set to False to skip sanity check and go straight to new data prediction
 RUN_SANITY_CHECK = True
-
-print("=" * 60)
-print("SCRIPT 05 - BLADE STRIKE DETECTOR (DEPLOYMENT)")
-print("=" * 60)
+RUN_PREDICTION   = False  # set to True when you have new data to predict
 
 # ============================================================================
 # Load model and expected performance metrics
@@ -48,7 +33,7 @@ print("Loading model and metrics")
 print("=" * 60)
 
 model = joblib.load(MODEL_PATH)
-print(f"✓ Model loaded: {MODEL_PATH}")
+print(f"Model loaded: {MODEL_PATH}")
 
 with open(METRICS_PATH, 'r') as f:
     metrics = json.load(f)
@@ -141,7 +126,7 @@ def load_and_prepare(df, channels, max_length, labeled=True):
     print(f"  Files: {len(file_metadata)}, shape: {X.shape}")
     print(f"  Sequence lengths: min={min(lengths)}, max={max(lengths)}, mean={np.mean(lengths):.1f}")
     if max(lengths) > max_length:
-        print(f"  ⚠ Some sequences longer than training max ({max_length}): truncated")
+        print(f"Some sequences longer than training max ({max_length}): truncated")
 
     return X, file_metadata
 
@@ -160,20 +145,17 @@ def predict(model, X, threshold, file_metadata):
     results['confidence'] = results['confidence'].round(4)
     return results, probs, preds
 
-# ============================================================================
-# STEP 1: Sanity check on training data (optional)
-# ============================================================================
+
 if RUN_SANITY_CHECK:
-    print("\n" + "=" * 60)
-    print("STEP 1: SANITY CHECK ON TRAINING DATA")
-    print("=" * 60)
-    print("\nNOTE: Training accuracy will be HIGHER than CV metrics.")
-    print("      CV metrics are the true performance estimate.")
-    print("      This check confirms the pipeline is working correctly.\n")
 
     df_train = pd.read_csv(TRAINING_DATA, low_memory=False)
     print(f"  Loaded: {len(df_train)} rows")
-    print(f"  NOTE: Apply the same pre-filtering used in script_01 before passing to model")
+
+    # Filters applied during training - must match script_01 exactly
+    df_train = df_train[df_train["treatment"] != "400 (50%)"].copy()
+    df_train = df_train[df_train["centre_hub_contact"] != "CH contact"].copy()
+    df_train = df_train[df_train["roi"].str.contains("roi4_nadir", na=False)].copy()
+    print(f"  After filtering: {len(df_train)} rows")
 
     X_train, meta_train = load_and_prepare(
         df_train, channels, max_length=trained_max_length, labeled=True)
@@ -230,25 +212,22 @@ if RUN_SANITY_CHECK:
 else:
     print("\nSanity check skipped (RUN_SANITY_CHECK = False)")
 
-# ============================================================================
-# STEP 2: Predict on new unlabelled data
-# ============================================================================
-print("\n" + "=" * 60)
-print("STEP 2: PREDICTING ON NEW DATA")
-print("=" * 60)
 
-if not os.path.exists(NEW_DATA):
-    print(f"\n⚠ New data file not found: {NEW_DATA}")
-    print(f"  Edit NEW_DATA at the top of this script to point at your sensor file.")
-    print(f"  Expected format: same columns as training data (file, time_s, {', '.join(CHANNELS[:3])}, ...)")
-    print(f"\nScript complete (sanity check only).")
-else:
-    print(f"\nLoading: {NEW_DATA}")
-    df_new = pd.read_csv(NEW_DATA, low_memory=False)
-    print(f"  Loaded: {len(df_new)} rows")
+if RUN_PREDICTION:
+    print("\n" + "=" * 60)
+    print("STEP 2: PREDICTING ON NEW DATA")
+    print("=" * 60)
+
+    if not os.path.exists(NEW_DATA):
+        print(f"\n⚠ New data file not found: {NEW_DATA}")
+        print(f"  Edit NEW_DATA at the top of this script to point at your sensor file.")
+    else:
+      print(f"\nLoading: {NEW_DATA}")
+      df_new = pd.read_csv(NEW_DATA, low_memory=False)
+      print(f"  Loaded: {len(df_new)} rows")
 
     # Check for required columns
-    required = ['file', 'time_s'] + CHANNELS
+    required = ['file', 'time_s'] + channels
     missing  = [col for col in required if col not in df_new.columns]
     if missing:
         raise ValueError(f"New data is missing required columns: {missing}")
@@ -345,30 +324,23 @@ else:
         plt.savefig(f"{OUTDIR}/strike_rate_by_treatment.png", dpi=300, bbox_inches='tight')
         plt.close()
 
-    # ---- Save CSVs ----
     results_new.to_csv(f"{OUTDIR}/blade_strike_predictions.csv", index=False)
 
     # Separate high-priority review file (uncertain predictions)
     if len(uncertain) > 0:
         uncertain.to_csv(f"{OUTDIR}/uncertain_predictions_for_review.csv", index=False)
 
-    print(f"\n✓ Saved: {OUTDIR}/blade_strike_predictions.csv")
+    print(f"\n {OUTDIR}/blade_strike_predictions.csv")
     if len(uncertain) > 0:
-        print(f"✓ Saved: {OUTDIR}/uncertain_predictions_for_review.csv")
-    print(f"✓ Saved: {OUTDIR}/prediction_probability_distribution.png")
+        print(f"{OUTDIR}/uncertain_predictions_for_review.csv")
+    print(f"{OUTDIR}/prediction_probability_distribution.png")
     if 'treatment' in results_new.columns:
-        print(f"✓ Saved: {OUTDIR}/strike_rate_by_treatment.png")
+        print(f" {OUTDIR}/strike_rate_by_treatment.png")
 
-# ============================================================================
-# SUMMARY
-# ============================================================================
-print("\n" + "=" * 60)
-print("SCRIPT 05 COMPLETE")
-print("=" * 60)
 print(f"\nExpected model performance (from CV):")
 print(f"  Accuracy:    {cv_accuracy:.3f}")
 print(f"  Sensitivity: {cv_sensitivity:.3f}")
 print(f"  Specificity: {cv_specificity:.3f}")
 print(f"  AUC:         {cv_auc:.3f}")
-if os.path.exists(NEW_DATA):
+if RUN_PREDICTION and os.path.exists(NEW_DATA):
     print(f"\nNew data predictions saved to: {OUTDIR}/")
