@@ -1,0 +1,4 @@
+treatment,n_fish,n_predicted_strike,n_true_strike,predicted_strike_rate,wilson_ci_lower,wilson_ci_upper,accuracy
+400 (100%),97,31,35,0.3196,0.2352,0.4177,0.8763
+400 (70%),73,33,33,0.4521,0.3431,0.5658,0.7945
+500 (100%),69,28,31,0.4058,0.2979,0.5236,0.8116

@@ -1,0 +1,11 @@
+file,blade_strike,strike_type,treatment,n_contact,c_1_type,clear_passage,centre_hub_contact,blade_contact,c_1_bl,probability,y_pred,y_true,cv_fold,correct,error_type
+B61-0716152814,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.4109760962750897,0,1,0,False,false_negative
+B67-0703174220,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.3651558550790897,0,1,1,False,false_negative
+B67-0717145407,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.3754900048644724,0,1,3,False,false_negative
+B67-0806155637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.5318875691033373,1,0,3,False,false_positive
+B74-0717115102,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.457715431272874,0,1,4,False,false_negative
+B75-0716155312,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.3961118965759363,0,1,0,False,false_negative
+B76-0806134449,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.42787562827695425,0,1,4,False,false_negative
+B78-0105004835,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.4893224817491324,1,0,1,False,false_positive
+B78-0704114429,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.35326173041241105,0,1,4,False,false_negative
+B78-0717150829,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,0.4333729733506475,0,1,3,False,false_negative

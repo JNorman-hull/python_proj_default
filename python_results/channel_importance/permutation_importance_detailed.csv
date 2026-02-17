@@ -1,0 +1,201 @@
+channel_name,channel_group,permutation,accuracy_drop
+higacc_x_g,High Acceleration,0,0.012552301255230103
+higacc_x_g,High Acceleration,1,0.004184100418409997
+higacc_x_g,High Acceleration,2,0.012552301255230103
+higacc_x_g,High Acceleration,3,0.004184100418409997
+higacc_x_g,High Acceleration,4,0.004184100418409997
+higacc_x_g,High Acceleration,5,0.004184100418409997
+higacc_x_g,High Acceleration,6,0.004184100418409997
+higacc_x_g,High Acceleration,7,0.004184100418409997
+higacc_x_g,High Acceleration,8,0.012552301255230103
+higacc_x_g,High Acceleration,9,0.008368200836820106
+higacc_x_g,High Acceleration,10,0.004184100418409997
+higacc_x_g,High Acceleration,11,0.01673640167364021
+higacc_x_g,High Acceleration,12,0.008368200836820106
+higacc_x_g,High Acceleration,13,0.012552301255230103
+higacc_x_g,High Acceleration,14,0.004184100418409997
+higacc_x_g,High Acceleration,15,0.008368200836820106
+higacc_x_g,High Acceleration,16,0.008368200836820106
+higacc_x_g,High Acceleration,17,0.008368200836820106
+higacc_x_g,High Acceleration,18,0.004184100418409997
+higacc_x_g,High Acceleration,19,0.008368200836820106
+higacc_y_g,High Acceleration,0,0.0
+higacc_y_g,High Acceleration,1,0.0
+higacc_y_g,High Acceleration,2,0.0
+higacc_y_g,High Acceleration,3,0.0
+higacc_y_g,High Acceleration,4,0.0
+higacc_y_g,High Acceleration,5,0.0
+higacc_y_g,High Acceleration,6,0.0
+higacc_y_g,High Acceleration,7,0.0
+higacc_y_g,High Acceleration,8,0.0
+higacc_y_g,High Acceleration,9,0.0
+higacc_y_g,High Acceleration,10,0.0
+higacc_y_g,High Acceleration,11,0.0
+higacc_y_g,High Acceleration,12,0.0
+higacc_y_g,High Acceleration,13,0.0
+higacc_y_g,High Acceleration,14,0.0
+higacc_y_g,High Acceleration,15,0.0
+higacc_y_g,High Acceleration,16,0.0
+higacc_y_g,High Acceleration,17,0.0
+higacc_y_g,High Acceleration,18,0.0
+higacc_y_g,High Acceleration,19,0.0
+higacc_z_g,High Acceleration,0,0.09623430962343094
+higacc_z_g,High Acceleration,1,0.08786610878661083
+higacc_z_g,High Acceleration,2,0.08786610878661083
+higacc_z_g,High Acceleration,3,0.09205020920502094
+higacc_z_g,High Acceleration,4,0.09205020920502094
+higacc_z_g,High Acceleration,5,0.11715481171548114
+higacc_z_g,High Acceleration,6,0.07531380753138073
+higacc_z_g,High Acceleration,7,0.07531380753138073
+higacc_z_g,High Acceleration,8,0.07531380753138073
+higacc_z_g,High Acceleration,9,0.08368200836820083
+higacc_z_g,High Acceleration,10,0.10041841004184104
+higacc_z_g,High Acceleration,11,0.08368200836820083
+higacc_z_g,High Acceleration,12,0.07112970711297073
+higacc_z_g,High Acceleration,13,0.09205020920502094
+higacc_z_g,High Acceleration,14,0.07112970711297073
+higacc_z_g,High Acceleration,15,0.07531380753138073
+higacc_z_g,High Acceleration,16,0.08368200836820083
+higacc_z_g,High Acceleration,17,0.11715481171548114
+higacc_z_g,High Acceleration,18,0.08368200836820083
+higacc_z_g,High Acceleration,19,0.07112970711297073
+inacc_x_ms,Internal Acceleration,0,0.0
+inacc_x_ms,Internal Acceleration,1,0.0
+inacc_x_ms,Internal Acceleration,2,0.0
+inacc_x_ms,Internal Acceleration,3,0.0
+inacc_x_ms,Internal Acceleration,4,0.0
+inacc_x_ms,Internal Acceleration,5,0.0
+inacc_x_ms,Internal Acceleration,6,0.0
+inacc_x_ms,Internal Acceleration,7,0.0
+inacc_x_ms,Internal Acceleration,8,0.0
+inacc_x_ms,Internal Acceleration,9,0.0
+inacc_x_ms,Internal Acceleration,10,0.0
+inacc_x_ms,Internal Acceleration,11,0.0
+inacc_x_ms,Internal Acceleration,12,0.0
+inacc_x_ms,Internal Acceleration,13,0.0
+inacc_x_ms,Internal Acceleration,14,0.0
+inacc_x_ms,Internal Acceleration,15,0.0
+inacc_x_ms,Internal Acceleration,16,0.0
+inacc_x_ms,Internal Acceleration,17,0.0
+inacc_x_ms,Internal Acceleration,18,0.0
+inacc_x_ms,Internal Acceleration,19,0.0
+inacc_y_ms,Internal Acceleration,0,0.0
+inacc_y_ms,Internal Acceleration,1,0.0
+inacc_y_ms,Internal Acceleration,2,0.0
+inacc_y_ms,Internal Acceleration,3,0.0
+inacc_y_ms,Internal Acceleration,4,0.0
+inacc_y_ms,Internal Acceleration,5,0.0
+inacc_y_ms,Internal Acceleration,6,0.0
+inacc_y_ms,Internal Acceleration,7,0.0
+inacc_y_ms,Internal Acceleration,8,0.0
+inacc_y_ms,Internal Acceleration,9,0.0
+inacc_y_ms,Internal Acceleration,10,0.0
+inacc_y_ms,Internal Acceleration,11,0.0
+inacc_y_ms,Internal Acceleration,12,0.0
+inacc_y_ms,Internal Acceleration,13,0.0
+inacc_y_ms,Internal Acceleration,14,0.0
+inacc_y_ms,Internal Acceleration,15,0.0
+inacc_y_ms,Internal Acceleration,16,0.0
+inacc_y_ms,Internal Acceleration,17,0.0
+inacc_y_ms,Internal Acceleration,18,0.0
+inacc_y_ms,Internal Acceleration,19,0.0
+inacc_z_ms,Internal Acceleration,0,0.0
+inacc_z_ms,Internal Acceleration,1,0.0
+inacc_z_ms,Internal Acceleration,2,0.0
+inacc_z_ms,Internal Acceleration,3,0.0
+inacc_z_ms,Internal Acceleration,4,0.0
+inacc_z_ms,Internal Acceleration,5,0.0
+inacc_z_ms,Internal Acceleration,6,0.0
+inacc_z_ms,Internal Acceleration,7,0.0
+inacc_z_ms,Internal Acceleration,8,0.0
+inacc_z_ms,Internal Acceleration,9,0.0
+inacc_z_ms,Internal Acceleration,10,0.0
+inacc_z_ms,Internal Acceleration,11,0.0
+inacc_z_ms,Internal Acceleration,12,0.0
+inacc_z_ms,Internal Acceleration,13,0.0
+inacc_z_ms,Internal Acceleration,14,0.0
+inacc_z_ms,Internal Acceleration,15,0.0
+inacc_z_ms,Internal Acceleration,16,0.0
+inacc_z_ms,Internal Acceleration,17,0.0
+inacc_z_ms,Internal Acceleration,18,0.0
+inacc_z_ms,Internal Acceleration,19,0.0
+rot_x_degs,Rotation,0,0.0
+rot_x_degs,Rotation,1,0.0
+rot_x_degs,Rotation,2,0.0
+rot_x_degs,Rotation,3,0.0
+rot_x_degs,Rotation,4,0.0
+rot_x_degs,Rotation,5,0.0
+rot_x_degs,Rotation,6,0.0
+rot_x_degs,Rotation,7,0.0
+rot_x_degs,Rotation,8,0.0
+rot_x_degs,Rotation,9,0.0
+rot_x_degs,Rotation,10,0.0
+rot_x_degs,Rotation,11,0.0
+rot_x_degs,Rotation,12,0.0
+rot_x_degs,Rotation,13,0.0
+rot_x_degs,Rotation,14,0.0
+rot_x_degs,Rotation,15,0.0
+rot_x_degs,Rotation,16,0.0
+rot_x_degs,Rotation,17,0.0
+rot_x_degs,Rotation,18,0.0
+rot_x_degs,Rotation,19,0.0
+rot_y_degs,Rotation,0,0.0
+rot_y_degs,Rotation,1,0.0
+rot_y_degs,Rotation,2,0.0
+rot_y_degs,Rotation,3,0.0
+rot_y_degs,Rotation,4,0.0
+rot_y_degs,Rotation,5,0.0
+rot_y_degs,Rotation,6,0.0
+rot_y_degs,Rotation,7,0.0
+rot_y_degs,Rotation,8,0.0
+rot_y_degs,Rotation,9,0.0
+rot_y_degs,Rotation,10,0.0
+rot_y_degs,Rotation,11,0.0
+rot_y_degs,Rotation,12,0.0
+rot_y_degs,Rotation,13,0.0
+rot_y_degs,Rotation,14,0.0
+rot_y_degs,Rotation,15,0.0
+rot_y_degs,Rotation,16,0.0
+rot_y_degs,Rotation,17,0.0
+rot_y_degs,Rotation,18,0.0
+rot_y_degs,Rotation,19,0.0
+rot_z_degs,Rotation,0,0.0
+rot_z_degs,Rotation,1,0.0
+rot_z_degs,Rotation,2,0.0
+rot_z_degs,Rotation,3,0.0
+rot_z_degs,Rotation,4,0.0
+rot_z_degs,Rotation,5,0.0
+rot_z_degs,Rotation,6,0.0
+rot_z_degs,Rotation,7,0.0
+rot_z_degs,Rotation,8,0.0
+rot_z_degs,Rotation,9,0.0
+rot_z_degs,Rotation,10,0.0
+rot_z_degs,Rotation,11,0.0
+rot_z_degs,Rotation,12,0.0
+rot_z_degs,Rotation,13,0.0
+rot_z_degs,Rotation,14,0.0
+rot_z_degs,Rotation,15,0.0
+rot_z_degs,Rotation,16,0.0
+rot_z_degs,Rotation,17,0.0
+rot_z_degs,Rotation,18,0.0
+rot_z_degs,Rotation,19,0.0
+pressure_kpa,Pressure,0,0.0
+pressure_kpa,Pressure,1,0.0
+pressure_kpa,Pressure,2,0.0
+pressure_kpa,Pressure,3,0.0
+pressure_kpa,Pressure,4,0.0
+pressure_kpa,Pressure,5,0.0
+pressure_kpa,Pressure,6,0.0
+pressure_kpa,Pressure,7,0.0
+pressure_kpa,Pressure,8,0.0
+pressure_kpa,Pressure,9,0.0
+pressure_kpa,Pressure,10,0.0
+pressure_kpa,Pressure,11,0.0
+pressure_kpa,Pressure,12,0.0
+pressure_kpa,Pressure,13,0.0
+pressure_kpa,Pressure,14,0.0
+pressure_kpa,Pressure,15,0.0
+pressure_kpa,Pressure,16,0.0
+pressure_kpa,Pressure,17,0.0
+pressure_kpa,Pressure,18,0.0
+pressure_kpa,Pressure,19,0.0

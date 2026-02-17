@@ -1,0 +1,41 @@
+file,strike_class,strike_type,treatment,n_contact,c_1_type,clear_passage,centre_hub_contact,blade_contact,c_1_bl,y_true,y_pred,pred_class,cv_fold,correct,confidence,prob_no_contact,prob_indirect_strike,prob_direct_strike
+B61-0102042637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0,1,indirect_strike,1,False,0.3814840705837436,0.3395866813058183,0.3814840705837436,0.2789292481104381
+B61-0716152814,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,2,False,0.688786726630624,0.688786726630624,0.22032381070819085,0.0908894626611852
+B63-0101034413,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,2,direct_strike,3,False,0.5414068801486589,0.312873704224108,0.14571941562723315,0.5414068801486589
+B63-0717130205,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0,1,indirect_strike,1,False,0.45149222782391357,0.35582320214514657,0.45149222782391357,0.19268457003093997
+B64-0704135354,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0,1,indirect_strike,3,False,0.4480331673343855,0.39127391864710553,0.4480331673343855,0.16069291401850894
+B65-0703184425,2,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,2,0,no_contact,4,False,0.37881200065290677,0.37881200065290677,0.33469251661593424,0.2864954827311589
+B65-0704135758,1,indirect_strike,500 (100%),1,Indiect,Contact,No CH contact,Blade contact,Near tip,1,2,direct_strike,3,False,0.4444738311600544,0.3206002624248607,0.23492590641508476,0.4444738311600544
+B67-0703174220,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,1,False,0.6527388895861121,0.6527388895861121,0.2635434519139223,0.08371765849996551
+B67-0703182811,2,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,2,1,indirect_strike,3,False,0.4788588629014312,0.15017385841613565,0.4788588629014312,0.3709672786824331
+B67-0704122929,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,1,2,direct_strike,1,False,0.46200038280478084,0.22019572422427983,0.31780389297093925,0.46200038280478084
+B67-0717124104,2,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,2,1,indirect_strike,1,False,0.43226589164984164,0.21950787548952372,0.43226589164984164,0.34822623286063475
+B67-0717145407,2,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,2,0,no_contact,2,False,0.48897366630823796,0.48897366630823796,0.28346036395518365,0.22756596973657844
+B67-0806132225,2,direct_strike,400 (70%),3,Direct,Contact,No CH contact,Blade contact,Absolute tip,2,1,indirect_strike,3,False,0.6704085870749078,0.15889409952053682,0.6704085870749078,0.17069731340455546
+B67-0806155637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0,2,direct_strike,2,False,0.5300357182839455,0.3585749025524847,0.1113893791635699,0.5300357182839455
+B68-0704115116,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,1,2,direct_strike,4,False,0.5394057282912452,0.30852187343779724,0.15207239827095742,0.5394057282912452
+B69-0703140920,2,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,2,1,indirect_strike,3,False,0.5494596545879631,0.13283825540009925,0.5494596545879631,0.3177020900119377
+B69-0716164624,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,1,2,direct_strike,0,False,0.6302512622208378,0.18103399571905732,0.18871474206010494,0.6302512622208378
+B75-0716155312,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,0,no_contact,2,False,0.65009259323186,0.65009259323186,0.13439497285487992,0.21551243391326014
+B75-0717131745,2,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,2,0,no_contact,3,False,0.42587563014914565,0.42587563014914565,0.18798959602828694,0.3861347738225675
+B75-0717145832,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,1,2,direct_strike,1,False,0.4322577954950668,0.32193437180801976,0.24580783269691334,0.4322577954950668
+B75-0806134558,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,2,direct_strike,1,False,0.450346525209623,0.26869061938762995,0.280962855402747,0.450346525209623
+B75-0806160726,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,1,2,direct_strike,0,False,0.5799801577344709,0.22242827874812332,0.1975915635174059,0.5799801577344709
+B75-0806164125,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,2,direct_strike,4,False,0.43526740459669266,0.33625856719674696,0.2284740282065604,0.43526740459669266
+B75-0806171105,2,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,2,1,indirect_strike,2,False,0.6080685376923913,0.10176214559339537,0.6080685376923913,0.29016931671421325
+B76-0703175218,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,2,False,0.5557556925669785,0.5557556925669785,0.28312557836013424,0.16111872907288718
+B76-0704123317,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,1,2,direct_strike,4,False,0.4617821158647917,0.2829150515679156,0.25530283256729286,0.4617821158647917
+B76-0716155619,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,4,False,0.45928508594678413,0.45928508594678413,0.30127314458948856,0.23944176946372733
+B76-0717114435,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0,1,indirect_strike,0,False,0.47243591003257684,0.43666654482678974,0.47243591003257684,0.09089754514063342
+B76-0806134449,2,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,2,0,no_contact,3,False,0.6447156003278836,0.6447156003278836,0.13971445833882404,0.21556994133329246
+B76-0806164443,2,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,2,1,indirect_strike,1,False,0.5803128709218819,0.16566726120000128,0.5803128709218819,0.25401986787811687
+B76-0806175906,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,2,direct_strike,3,False,0.414023485782849,0.19643104484791782,0.3895454693692332,0.414023485782849
+B77-0102032311,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,1,2,direct_strike,0,False,0.671531192925309,0.19663900902548676,0.1318297980492042,0.671531192925309
+B77-0102185739,2,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,2,1,indirect_strike,4,False,0.4337353236075171,0.1781218802195512,0.4337353236075171,0.3881427961729317
+B77-0103143826,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,4,False,0.46492257921602875,0.46492257921602875,0.325570980669336,0.20950644011463532
+B77-0703173716,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,2,direct_strike,2,False,0.6740265249565742,0.0861790925326782,0.23979438251074744,0.6740265249565742
+B77-0704114806,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,1,2,direct_strike,3,False,0.8298748642780132,0.03023847190250044,0.13988666381948647,0.8298748642780132
+B78-0704114429,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,1,0,no_contact,4,False,0.7698888610236162,0.7698888610236162,0.10658051131003568,0.1235306276663481
+B78-0716173218,2,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,2,1,indirect_strike,4,False,0.41859043179193023,0.3388726200336122,0.41859043179193023,0.2425369481744575
+B78-0717150829,2,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,2,0,no_contact,1,False,0.5512191450378591,0.5512191450378591,0.13068874618083992,0.31809210878130095
+B79-0716132503,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,1,2,direct_strike,0,False,0.4758288192540789,0.4247403512445399,0.09943082950138107,0.4758288192540789

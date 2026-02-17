@@ -1,0 +1,4 @@
+model,configuration,n_channels,cv_accuracy,cv_auc,indirect_accuracy
+Binary (full suite),full_suite,10,0.9581589958158996,0.9878066378066379,0.8666666666666667
+Binary (higacc + pressure),higacc_plus_pressure,4,0.9456066945606695,0.9831890331890332,0.8
+Binary (higacc only),higacc_only,3,0.9581589958158996,0.9878066378066378,0.8333333333333334
