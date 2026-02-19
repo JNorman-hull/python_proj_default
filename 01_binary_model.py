@@ -15,9 +15,9 @@ import seaborn as sns
 from scipy.stats import beta as beta_dist
 
 
-RAW_DATA    = "python_data/raw_labeled_data2.csv"
-OUTDIR      = "python_results/binary"
-DATADIR     = "python_data"
+RAW_DATA = "python_data/labeled_data_with_types.csv"
+OUTDIR   = "python_results/binary"
+DATADIR  = "python_data"
 os.makedirs(OUTDIR, exist_ok=True)
 os.makedirs(DATADIR, exist_ok=True)
 np.random.seed(42)
@@ -27,24 +27,21 @@ print("BINARY BLADE STRIKE CLASSIFIER")
 print("=" * 60)
 
 df = pd.read_csv(RAW_DATA, low_memory=False)
-print(f"Initial rows: {len(df)}")
-
-df = df[df["treatment"] != "400 (50%)"].copy()
-df = df[df["centre_hub_contact"] != "CH contact"].copy()
-df = df[df["roi"].str.contains("roi4_nadir", na=False)].copy()
-print(f"After filtering: {len(df)} rows")
+#df = df[df["passage_type"] != "Other impeller collision"].copy()
+print(f"Rows: {len(df)}")
 
 # Binary label
-df["blade_strike"] = (df["n_contact"] > 0).astype(int)
+df["blade_strike"] = (df["passage_type"] != "No contact").astype(int)
 
 # Strike type for downstream analysis
 def classify_strike_type(row):
-    if row["n_contact"] == 0:
+    if row["passage_type"] == "No contact":
         return "no_contact"
-    elif row["c_1_type"] == "Direct":
-        return "direct_strike"
-    else:
-        return "indirect_strike"
+    elif row["passage_type"] == "Leading edge strike":
+        return f"leading_{row['leading_type'].lower()}"
+    elif row["passage_type"] == "Other impeller collision":
+        return f"other_{row['other_type'].lower().replace(' ', '_')}"
+    return "unknown"
 
 df["strike_type"] = df.apply(classify_strike_type, axis=1)
 
@@ -52,27 +49,24 @@ df["strike_type"] = df.apply(classify_strike_type, axis=1)
 file_metadata = (
     df.groupby("file")
       .agg({
-          "blade_strike": "first",
-          "strike_type":  "first",
-          "treatment":    "first",
-          "n_contact":    "first",
-          "c_1_type":     "first",
-          "clear_passage":       "first",
-          "centre_hub_contact":  "first",
-          "blade_contact":       "first",
-          "c_1_bl":              "first"
+          "blade_strike":     "first",
+          "strike_type":      "first",
+          "treatment":        "first",
+          "passage_type":     "first",
+          "leading_type":     "first",
+          "other_type":       "first",
+          "passage_severity": "first"
       })
       .reset_index()
 )
 
 print(f"\nUnique files: {len(file_metadata)}")
-print(f"Label distribution:\n{file_metadata['blade_strike'].value_counts()}")
-print(f"Strike type distribution:\n{file_metadata['strike_type'].value_counts()}")
+print(f"Strike distribution:")
+print(file_metadata["strike_type"].value_counts())
 
-print("\n" + "=" * 60)
-print("Define channels and extract time series")
-print("=" * 60)
-
+# ============================================================================
+# Time series extraction
+# ============================================================================
 channels = [
     'higacc_x_g', 'higacc_y_g', 'higacc_z_g',
     'inacc_x_ms', 'inacc_y_ms', 'inacc_z_ms',
@@ -80,46 +74,32 @@ channels = [
     'pressure_kpa'
 ]
 
-missing = [ch for ch in channels if ch not in df.columns]
-if missing:
-    print(f"Warning: Missing channels: {missing}")
-    channels = [ch for ch in channels if ch in df.columns]
-print(f"Using {len(channels)} channels")
-
-time_series_dict = {}
-lengths = []
-for file_id in file_metadata['file']:
-    file_data = df[df['file'] == file_id].sort_values('time_s')
-    ts_data = file_data[channels].values
-    time_series_dict[file_id] = ts_data
-    lengths.append(len(ts_data))
-
-print(f"\nTime series lengths: min={min(lengths)}, max={max(lengths)}, mean={np.mean(lengths):.1f}")
-
-max_length = max(lengths)
-
 def pad_time_series(ts, target_length):
     if len(ts) >= target_length:
         return ts[:target_length]
     n_pad = target_length - len(ts)
     return np.vstack([ts, np.tile(ts[-1], (n_pad, 1))])
 
+lengths = []
+for file_id in file_metadata['file']:
+    file_data = df[df['file'] == file_id]
+    lengths.append(len(file_data))
+
+max_length = max(lengths)
+print(f"\nSequence lengths: min={min(lengths)}, max={max_length}, mean={np.mean(lengths):.1f}")
+
 X_list = []
 for file_id in file_metadata['file']:
-    ts_padded = pad_time_series(time_series_dict[file_id], max_length)
-    X_list.append(ts_padded.T)  # (channels, timepoints)
+    file_data = df[df['file'] == file_id].sort_values('time_s')
+    ts        = file_data[channels].values
+    ts_padded = pad_time_series(ts, max_length)
+    X_list.append(ts_padded.T)
 
-X = np.stack(X_list)  # (n_samples, n_channels, n_timepoints)
-y = file_metadata["blade_strike"].values
+X = np.stack(X_list)
+y = file_metadata['blade_strike'].values
 
-print(f"\nArray shapes: X={X.shape}, y={y.shape}")
-print(f"  Strikes: {y.sum()}, No strikes: {(y==0).sum()}")
-
-# Save arrays and metadata
-np.save(f"{DATADIR}/X_binary.npy", X)
-np.save(f"{DATADIR}/y_binary.npy", y)
-file_metadata.to_csv(f"{OUTDIR}/feature_metadata.csv", index=False)
-print(f"\nSaved arrays to {DATADIR}/")
+print(f"\nX shape: {X.shape}")
+print(f"y distribution: {np.bincount(y)}")
 
 # Class weights
 n_strikes    = y.sum()
@@ -131,14 +111,17 @@ print(f"Strike class weight: {strike_weight:.2f}")
 
 sample_weights_full = np.where(y == 1, strike_weight, 1.0)
 
+# ============================================================================
+# 5-Fold Stratified Cross-Validation
+# ============================================================================
 print("\n" + "=" * 60)
 print("5-Fold Stratified Cross-Validation")
 print("=" * 60)
 
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-oof_probs      = np.zeros(len(y))
-oof_preds      = np.zeros(len(y), dtype=int)
+oof_probs       = np.zeros(len(y))
+oof_preds       = np.zeros(len(y), dtype=int)
 fold_assignment = np.zeros(len(y), dtype=int)
 
 cv_metrics = {'auc': [], 'accuracy': [], 'sensitivity': [],
@@ -160,13 +143,12 @@ for fold, (train_idx, test_idx) in enumerate(cv.split(X, y)):
     scores = pipeline.decision_function(X[test_idx])
     probs  = 1 / (1 + np.exp(-scores))
 
-    # Youden's index optimal threshold per fold
     fpr_f, tpr_f, thresh_f = roc_curve(y[test_idx], probs)
     opt_thresh = thresh_f[np.argmax(tpr_f - fpr_f)]
     preds = (probs >= opt_thresh).astype(int)
 
-    oof_probs[test_idx]      = probs
-    oof_preds[test_idx]      = preds
+    oof_probs[test_idx]       = probs
+    oof_preds[test_idx]       = preds
     fold_assignment[test_idx] = fold
 
     auc_f = roc_auc_score(y[test_idx], probs)
@@ -187,9 +169,16 @@ for fold, (train_idx, test_idx) in enumerate(cv.split(X, y)):
 
     print(f"  AUC={auc_f:.3f}, Accuracy={acc_f:.3f}, Threshold={opt_thresh:.3f}")
 
+# ============================================================================
+# Overall out-of-fold performance
+# ============================================================================
 print("\n" + "=" * 60)
-print(" Overall out-of-fold performance")
+print("Overall out-of-fold performance")
 print("=" * 60)
+
+mcc_num = (tp * tn) - (fp_n * fn)
+mcc_den = np.sqrt((tp + fp_n) * (tp + fn) * (tn + fp_n) * (tn + fn))
+mcc = float(mcc_num / mcc_den) if mcc_den > 0 else 0.0
 
 final_auc = roc_auc_score(y, oof_probs)
 fpr, tpr, thresholds = roc_curve(y, oof_probs)
@@ -210,14 +199,14 @@ accuracy    = (tp + tn) / (tp + tn + fp_n + fn)
 f1          = 2 * (precision * sensitivity) / (precision + sensitivity)
 
 print(f"\nOut-of-fold performance:")
-print(f"  AUC:              {final_auc:.3f}")
-print(f"  PR-AUC:           {pr_auc:.3f}")
-print(f"  Accuracy:         {accuracy:.3f}")
-print(f"  Sensitivity:      {sensitivity:.3f}")
-print(f"  Specificity:      {specificity:.3f}")
-print(f"  Precision:        {precision:.3f}")
-print(f"  F1-Score:         {f1:.3f}")
-print(f"  Optimal threshold:{optimal_threshold:.3f}")
+print(f"  AUC:               {final_auc:.3f}")
+print(f"  PR-AUC:            {pr_auc:.3f}")
+print(f"  Accuracy:          {accuracy:.3f}")
+print(f"  Sensitivity:       {sensitivity:.3f}")
+print(f"  Specificity:       {specificity:.3f}")
+print(f"  Precision:         {precision:.3f}")
+print(f"  F1-Score:          {f1:.3f}")
+print(f"  Optimal threshold: {optimal_threshold:.3f}")
 
 print(f"\nCV summary (mean ± std, 5 folds):")
 for k in ['auc', 'accuracy', 'sensitivity', 'specificity', 'precision', 'f1']:
@@ -228,6 +217,9 @@ print(f"              Pred No Strike  Pred Strike")
 print(f"True No Strike     {tn:3d}           {fp_n:3d}")
 print(f"True Strike        {fn:3d}           {tp:3d}")
 
+# ============================================================================
+# Misclassified files
+# ============================================================================
 print("\n" + "=" * 60)
 print("Misclassified files for review")
 print("=" * 60)
@@ -258,6 +250,9 @@ print("\nFalse Negatives:")
 for _, row in fn_files.iterrows():
     print(f"  {row['file']}: prob={row['probability']:.3f}, treatment={row['treatment']}, type={row['strike_type']}")
 
+# ============================================================================
+# Performance by strike type and treatment
+# ============================================================================
 print("\n" + "=" * 60)
 print("Performance by strike type and treatment")
 print("=" * 60)
@@ -282,17 +277,19 @@ perf_by_tx = (
 )
 print(perf_by_tx)
 
+# ============================================================================
+# Blade strike predictions with Wilson CI
+# ============================================================================
 print("\n" + "=" * 60)
 print("Blade strike predictions (Wilson binomial 95% CI)")
 print("=" * 60)
 
 def wilson_ci(k, n, alpha=0.05):
-    """Wilson binomial confidence interval."""
     if n == 0:
         return 0.0, 0.0, 0.0
-    z = 1.959964  # 95% CI
+    z = 1.959964
     p_hat = k / n
-    denom = 1 + z**2 / n
+    denom  = 1 + z**2 / n
     centre = (p_hat + z**2 / (2 * n)) / denom
     margin = (z * np.sqrt(p_hat * (1 - p_hat) / n + z**2 / (4 * n**2))) / denom
     return p_hat, max(0, centre - margin), min(1, centre + margin)
@@ -300,25 +297,27 @@ def wilson_ci(k, n, alpha=0.05):
 tx_groups = cv_results.groupby("treatment")
 rows = []
 for tx, grp in tx_groups:
-    n_total    = len(grp)
-    n_pred_strike  = grp["y_pred"].sum()
-    n_true_strike  = grp["y_true"].sum()
+    n_total       = len(grp)
+    n_pred_strike = grp["y_pred"].sum()
+    n_true_strike = grp["y_true"].sum()
     p_hat, ci_lo, ci_hi = wilson_ci(n_pred_strike, n_total)
     rows.append({
-        "treatment":            tx,
-        "n_fish":               n_total,
-        "n_predicted_strike":   int(n_pred_strike),
-        "n_true_strike":        int(n_true_strike),
+        "treatment":             tx,
+        "n_fish":                n_total,
+        "n_predicted_strike":    int(n_pred_strike),
+        "n_true_strike":         int(n_true_strike),
         "predicted_strike_rate": round(p_hat, 4),
-        "wilson_ci_lower":      round(ci_lo, 4),
-        "wilson_ci_upper":      round(ci_hi, 4),
-        "accuracy":             round(grp["correct"].mean(), 4)
+        "wilson_ci_lower":       round(ci_lo, 4),
+        "wilson_ci_upper":       round(ci_hi, 4),
+        "accuracy":              round(grp["correct"].mean(), 4)
     })
 
 blade_strike_predictions = pd.DataFrame(rows)
 print(blade_strike_predictions.to_string(index=False))
 
-
+# ============================================================================
+# Figures
+# ============================================================================
 plt.style.use('default')
 sns.set_palette("husl")
 
@@ -359,7 +358,7 @@ plt.close()
 # 3. Confusion Matrix
 fig, ax = plt.subplots(figsize=(7, 6))
 cm_pct = cm.astype(float) / cm.sum(axis=1)[:, np.newaxis] * 100
-annot = np.array([[f'{cm[i,j]}\n({cm_pct[i,j]:.1f}%)' for j in range(2)] for i in range(2)])
+annot  = np.array([[f'{cm[i,j]}\n({cm_pct[i,j]:.1f}%)' for j in range(2)] for i in range(2)])
 sns.heatmap(cm, annot=annot, fmt='', cmap='Blues',
             xticklabels=['No Strike', 'Strike'],
             yticklabels=['No Strike', 'Strike'],
@@ -372,12 +371,14 @@ plt.savefig(f"{OUTDIR}/confusion_matrix.png", dpi=300, bbox_inches='tight')
 plt.close()
 
 # 4. Probability Distribution
+n_strikes_plot    = int(y.sum())
+n_no_strikes_plot = int((y == 0).sum())
 fig, ax = plt.subplots(figsize=(10, 6))
 bins = np.linspace(0, 1, 21)
 ax.hist(oof_probs[y == 0], bins=bins, alpha=0.6,
-        label=f'No Strike (n={n_no_strikes})', color='steelblue', edgecolor='black', lw=0.5)
+        label=f'No Strike (n={n_no_strikes_plot})', color='steelblue', edgecolor='black', lw=0.5)
 ax.hist(oof_probs[y == 1], bins=bins, alpha=0.6,
-        label=f'Strike (n={n_strikes})', color='tomato', edgecolor='black', lw=0.5)
+        label=f'Strike (n={n_strikes_plot})', color='tomato', edgecolor='black', lw=0.5)
 ax.axvline(optimal_threshold, color='green', linestyle='--', lw=2,
            label=f'Optimal Threshold ({optimal_threshold:.3f})')
 ax.set_xlabel('Predicted Probability', fontsize=12)
@@ -390,10 +391,8 @@ plt.savefig(f"{OUTDIR}/probability_distribution.png", dpi=300, bbox_inches='tigh
 plt.close()
 
 # 5. Accuracy by Strike Type
-fig, ax = plt.subplots(figsize=(8, 6))
-perf_by_type['accuracy'].plot(kind='bar', ax=ax,
-                               color=['steelblue', 'tomato', 'seagreen'],
-                               edgecolor='black', width=0.6)
+fig, ax = plt.subplots(figsize=(9, 6))
+perf_by_type['accuracy'].plot(kind='bar', ax=ax, edgecolor='black', width=0.6)
 ax.axhline(y=accuracy, color='black', linestyle='--', lw=1.5,
            label=f'Overall Accuracy ({accuracy:.3f})')
 ax.set_ylabel('Accuracy', fontsize=12)
@@ -409,34 +408,41 @@ plt.close()
 
 print("Saved figures")
 
+# ============================================================================
+# Save outputs
+# ============================================================================
 cv_results.to_csv(f"{OUTDIR}/cv_predictions.csv", index=False)
 misclassified.to_csv(f"{OUTDIR}/misclassified_files_for_review.csv", index=False)
 blade_strike_predictions.to_csv(f"{OUTDIR}/blade_strike_predictions.csv", index=False)
 
 metrics = {
     "model": "MiniRocket + RidgeClassifierCV (Binary)",
-    "n_samples":          int(len(y)),
-    "n_strikes":          int(y.sum()),
-    "n_no_strikes":       int((y == 0).sum()),
-    "strike_rate":        float(y.mean()),
-    "class_weight":       float(strike_weight),
-    "n_channels":         len(channels),
+    "n_samples":           int(len(y)),
+    "n_strikes":           int(y.sum()),
+    "n_no_strikes":        int((y == 0).sum()),
+    "strike_rate":         float(y.mean()),
+    "class_weight":        float(strike_weight),
+    "n_channels":          len(channels),
     "max_sequence_length": int(max_length),
+    "channels":            channels,
     "cross_validation": {
         "n_folds": 5,
         **{f"mean_{k}": float(np.mean(v)) for k, v in cv_metrics.items()},
         **{f"std_{k}":  float(np.std(v))  for k, v in cv_metrics.items()}
     },
     "out_of_fold_performance": {
-        "roc_auc":          float(final_auc),
-        "pr_auc":           float(pr_auc),
-        "overall_accuracy": float(accuracy),
-        "sensitivity":      float(sensitivity),
-        "specificity":      float(specificity),
-        "precision":        float(precision),
-        "f1_score":         float(f1),
-        "optimal_threshold": float(optimal_threshold),
-        "confusion_matrix": {"tn": int(tn), "fp": int(fp_n), "fn": int(fn), "tp": int(tp)}
+    "roc_auc":           float(final_auc),
+    "pr_auc":            float(pr_auc),
+    "overall_accuracy":  float(accuracy),
+    "sensitivity":       float(sensitivity),
+    "specificity":       float(specificity),
+    "precision":         float(precision),
+    "f1_score":          float(f1),
+    "mcc":               mcc,
+    "FNR":               float(fn / (fn + tp)),  
+    "FPR":               float(fp_n / (fp_n + tn)),
+    "optimal_threshold": float(optimal_threshold),
+    "confusion_matrix":  {"tn": int(tn), "fp": int(fp_n), "fn": int(fn), "tp": int(tp)}
     },
     "performance_by_strike_type": {
         st: {
@@ -455,9 +461,11 @@ metrics = {
 with open(f"{OUTDIR}/performance_metrics.json", "w") as f:
     json.dump(metrics, f, indent=2)
 
-print("Saved csvs")
+print("Saved CSVs and metrics JSON")
 
-
+# ============================================================================
+# Train final model on ALL data
+# ============================================================================
 print("\n" + "=" * 60)
 print("Training final model on ALL data")
 print("=" * 60)
@@ -469,8 +477,13 @@ final_pipeline = make_pipeline(
 )
 final_pipeline.fit(X, y, ridgeclassifiercv__sample_weight=sample_weights_full)
 joblib.dump(final_pipeline, f"{OUTDIR}/final_model_for_deployment.joblib")
-print(f"Saved final_model_for_deployment.joblib")
-print("\COMPLETE")
+print("Saved final_model_for_deployment.joblib")
+
+# Save max_length for deployment
+np.save(f"{OUTDIR}/max_sequence_length.npy", max_length)
+
+print("\n" + "=" * 60)
+print("COMPLETE")
 print("=" * 60)
 print(f"\n  Files processed:  {len(y)}")
 print(f"  ROC-AUC:          {final_auc:.3f}")
@@ -479,5 +492,8 @@ print(f"  Sensitivity:      {sensitivity:.3f}")
 print(f"  Specificity:      {specificity:.3f}")
 print(f"  Precision:        {precision:.3f}")
 print(f"  F1-Score:         {f1:.3f}")
+print(f"  MCC:               {mcc:.3f}")
+print(f"  FNR:               {fn / (fn + tp):.3f}")
+print(f"  FPR:               {fp_n / (fp_n + tn):.3f}")
 print(f"  Misclassified:    {len(misclassified)} files")
 print(f"\nOutputs: {OUTDIR}/")

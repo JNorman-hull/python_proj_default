@@ -17,7 +17,7 @@ import seaborn as sns
 from tqdm import tqdm
 
 
-RAW_DATA    = "python_data/raw_labeled_data2.csv"
+RAW_DATA    = "python_data/labeled_data_with_types.csv"
 BINARY_MODEL = "python_results/binary/final_model_for_deployment.joblib"
 METRICS_PATH = "python_results/binary/performance_metrics.json"
 OUTDIR      = "python_results/channel_importance"
@@ -35,20 +35,20 @@ ALL_CHANNELS = [
 N_PERMUTATIONS = 20
 
 df = pd.read_csv(RAW_DATA, low_memory=False)
-df = df[df["treatment"] != "400 (50%)"].copy()
-df = df[df["centre_hub_contact"] != "CH contact"].copy()
-df = df[df["roi"].str.contains("roi4_nadir", na=False)].copy()
+# df = df[df["treatment"] != "400 (50%)"].copy()
+# df = df[df["centre_hub_contact"] != "CH contact"].copy()
+# df = df[df["roi"].str.contains("roi4_nadir", na=False)].copy()
 
-# Binary labels
-df["blade_strike"] = (df["n_contact"] > 0).astype(int)
+df["blade_strike"] = (df["passage_type"] != "No contact").astype(int)
 
 def classify_strike_type(row):
-    if row["n_contact"] == 0:
+    if row["passage_type"] == "No contact":
         return "no_contact"
-    elif row["c_1_type"] == "Direct":
-        return "direct_strike"
-    else:
-        return "indirect_strike"
+    elif row["passage_type"] == "Leading edge strike":
+        return f"leading_{row['leading_type'].lower()}"
+    elif row["passage_type"] == "Other impeller collision":
+        return f"other_{row['other_type'].lower().replace(' ', '_')}"
+    return "unknown"
 
 df["strike_type"] = df.apply(classify_strike_type, axis=1)
 
@@ -133,7 +133,7 @@ baseline_accuracy = accuracy_score(y, preds_base)
 
 # Baseline indirect accuracy: among indirect strike files, how many correctly predicted as strike
 # this needs attention
-indirect_mask = (file_metadata['strike_type'] == 'indirect_strike').values
+indirect_mask = (file_metadata["strike_type"] == "leading_indirect")
 baseline_indirect_acc = (preds_base[indirect_mask] == y[indirect_mask]).mean() if indirect_mask.sum() > 0 else 0.0
 
 print(f"Baseline accuracy (on training data): {baseline_accuracy:.4f}")
@@ -287,10 +287,10 @@ for cfg_idx, cfg in enumerate(configurations):
     # Per-strike-type accuracy
     file_metadata_temp = file_metadata.copy()
     file_metadata_temp['oof_pred'] = final_preds
-    direct_acc   = (file_metadata_temp[file_metadata_temp['strike_type']=='direct_strike']['blade_strike'] ==
-                    file_metadata_temp[file_metadata_temp['strike_type']=='direct_strike']['oof_pred']).mean()
-    indirect_acc = (file_metadata_temp[file_metadata_temp['strike_type']=='indirect_strike']['blade_strike'] ==
-                    file_metadata_temp[file_metadata_temp['strike_type']=='indirect_strike']['oof_pred']).mean()
+    direct_acc   = (file_metadata_temp[file_metadata_temp['strike_type']=='leading_direct']['blade_strike'] ==
+                file_metadata_temp[file_metadata_temp['strike_type']=='leading_direct']['oof_pred']).mean()
+    indirect_acc = (file_metadata_temp[file_metadata_temp['strike_type']=='leading_indirect']['blade_strike'] ==
+                file_metadata_temp[file_metadata_temp['strike_type']=='leading_indirect']['oof_pred']).mean()
 
     cfg_time = time.time() - cfg_start
 
