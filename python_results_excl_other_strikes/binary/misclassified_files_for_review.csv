@@ -1,0 +1,8 @@
+file,blade_strike,strike_type,treatment,passage_type,leading_type,other_type,passage_severity,probability,y_pred,y_true,cv_fold,correct,error_type
+B63-0717130205,0,no_contact,400 (70%),No contact,,,0,0.5154138829985958,1,0,1,False,false_positive
+B67-0716152748,1,leading_indirect,400 (100%),Leading edge strike,Indirect,,2,0.4553025384028315,0,1,1,False,false_negative
+B67-0717145407,1,leading_direct,400 (70%),Leading edge strike,Direct,,3,0.39539255889942837,0,1,3,False,false_negative
+B75-0716155312,1,leading_indirect,400 (100%),Leading edge strike,Indirect,,2,0.40806302592225224,0,1,0,False,false_negative
+B76-0717150455,1,leading_indirect,400 (70%),Leading edge strike,Indirect,,2,0.4824436506780289,0,1,3,False,false_negative
+B76-0806134449,1,leading_direct,400 (70%),Leading edge strike,Direct,,3,0.3462035089916185,0,1,3,False,false_negative
+B78-0105043507,1,leading_direct,400 (70%),Leading edge strike,Direct,,3,0.4474535457662711,0,1,1,False,false_negative

@@ -1,0 +1,84 @@
+{
+  "model": "MiniRocket + RidgeClassifierCV (Multi-Class)",
+  "n_samples": 239,
+  "n_classes": 3,
+  "class_names": [
+    "no_contact",
+    "indirect_strike",
+    "direct_strike"
+  ],
+  "class_distribution": {
+    "no_contact": 140,
+    "indirect_strike": 30,
+    "direct_strike": 69
+  },
+  "class_weights": {
+    "no_contact": 0.569047619047619,
+    "indirect_strike": 2.6555555555555554,
+    "direct_strike": 1.1545893719806763
+  },
+  "n_channels": 10,
+  "max_sequence_length": 401,
+  "cross_validation": {
+    "n_folds": 5,
+    "mean_accuracy": 0.8325354609929076,
+    "mean_macro_precision": 0.6991831356959277,
+    "mean_macro_recall": 0.6806471306471307,
+    "mean_macro_f1": 0.6810437157582563,
+    "std_accuracy": 0.03774493304837643,
+    "std_macro_precision": 0.09849047900532763,
+    "std_macro_recall": 0.06014760332298994,
+    "std_macro_f1": 0.07023511523138538
+  },
+  "out_of_fold_performance": {
+    "overall_accuracy": 0.8326359832635983,
+    "macro_precision": 0.6987150415721844,
+    "macro_recall": 0.680848861283644,
+    "macro_f1": 0.6850309305524668,
+    "confusion_matrix": [
+      [
+        135,
+        4,
+        1
+      ],
+      [
+        7,
+        8,
+        15
+      ],
+      [
+        5,
+        8,
+        56
+      ]
+    ],
+    "per_class_metrics": {
+      "no_contact": {
+        "precision": 0.9183673469387755,
+        "recall": 0.9642857142857143,
+        "f1_score": 0.9407665505226481,
+        "support": 140
+      },
+      "indirect_strike": {
+        "precision": 0.4,
+        "recall": 0.26666666666666666,
+        "f1_score": 0.32,
+        "support": 30
+      },
+      "direct_strike": {
+        "precision": 0.7777777777777778,
+        "recall": 0.8115942028985508,
+        "f1_score": 0.7943262411347518,
+        "support": 69
+      }
+    }
+  },
+  "misclassified": {
+    "total": 40,
+    "by_true_class": {
+      "no_contact": 5,
+      "indirect_strike": 22,
+      "direct_strike": 13
+    }
+  }
+}

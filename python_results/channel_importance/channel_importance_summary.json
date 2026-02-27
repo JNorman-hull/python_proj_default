@@ -12,10 +12,10 @@
   },
   "ablation_study": {
     "configurations_tested": 3,
-    "higacc_only_accuracy": 0.9581589958158996,
-    "higacc_plus_pressure_accuracy": 0.9456066945606695,
-    "full_suite_accuracy": 0.9581589958158996,
-    "accuracy_gain_minimal_to_full": 0.0,
-    "publication_claim": "High-acceleration sensors alone achieve 95.8% accuracy. Adding all remaining sensors improves performance by 0.0 percentage points."
+    "higacc_only_accuracy": 0.9341085271317829,
+    "higacc_plus_pressure_accuracy": 0.937984496124031,
+    "full_suite_accuracy": 0.9457364341085271,
+    "accuracy_gain_minimal_to_full": 0.011627906976744207,
+    "publication_claim": "High-acceleration sensors alone achieve 93.4% accuracy. Adding all remaining sensors improves performance by 1.2 percentage points."
   }
 }

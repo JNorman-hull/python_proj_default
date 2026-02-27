@@ -1,0 +1,240 @@
+file,blade_strike,strike_type,treatment,n_contact,c_1_type,clear_passage,centre_hub_contact,blade_contact,c_1_bl,probability,y_pred,y_true,cv_fold,correct,error_type
+B61-0102000014,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.7084040230167536,1,1,3,True,correct
+B61-0102002256,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.21946021253455544,0,0,1,True,correct
+B61-0102003600,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3509215118426564,0,0,0,True,correct
+B61-0102005624,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.4272968688931694,0,0,3,True,correct
+B61-0102011935,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.2756350389905215,0,0,3,True,correct
+B61-0102024730,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.36500085288627365,0,0,3,True,correct
+B61-0102031847,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.40276487130937955,0,0,0,True,correct
+B61-0102033828,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,0.8660339994188416,1,1,2,True,correct
+B61-0102041430,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.709197737653132,1,1,4,True,correct
+B61-0102042637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.5807101393458166,1,0,0,False,false_positive
+B61-0703140718,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3522565747417131,0,0,3,True,correct
+B61-0703180049,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3456713782041543,0,0,0,True,correct
+B61-0704133030,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3535258446946169,0,0,2,True,correct
+B61-0716112326,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.25199983368938234,0,0,4,True,correct
+B61-0716132030,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3366262659958087,0,0,0,True,correct
+B61-0716141431,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2634323007146025,0,0,4,True,correct
+B61-0716150441,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.25990360407230595,0,0,1,True,correct
+B61-0716152814,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.3333223710191511,0,1,0,False,false_negative
+B61-0716164322,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.32558444413591686,0,0,2,True,correct
+B61-0717094833,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.8077208572599651,1,1,4,True,correct
+B61-0717102503,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.5805382473103814,1,1,4,True,correct
+B61-0717111652,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3954324770619164,0,0,1,True,correct
+B61-0717130215,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3237815777924023,0,0,0,True,correct
+B61-0717133143,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5812769413267853,1,1,3,True,correct
+B62-0703140412,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.25763897861692736,0,0,0,True,correct
+B62-0703174721,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.25679029927712566,0,0,2,True,correct
+B62-0704114942,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6239087435079914,1,1,2,True,correct
+B62-0704123518,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.258767236278287,0,0,0,True,correct
+B62-0704135530,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.4259270770484704,0,0,4,True,correct
+B62-0716153057,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.39441867656068264,0,0,0,True,correct
+B63-0101014350,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2840316376372791,0,0,4,True,correct
+B63-0101023149,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2531588527089928,0,0,2,True,correct
+B63-0101030528,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.7544911431431407,1,1,0,True,correct
+B63-0101034413,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.40725658755671773,0,1,0,False,false_negative
+B63-0101042001,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.30751374086406447,0,0,1,True,correct
+B63-0703134337,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.381263789393336,0,0,2,True,correct
+B63-0703175355,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.20069616019383946,0,0,1,True,correct
+B63-0703183412,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3696745328543461,0,0,0,True,correct
+B63-0704134638,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.6115440607508076,1,1,1,True,correct
+B63-0717111035,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3352070429970574,0,0,1,True,correct
+B63-0717130205,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.6135158897162616,1,0,3,False,false_positive
+B63-0717133134,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.18062577899272414,0,0,2,True,correct
+B64-0703134039,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.7208164527451971,1,1,3,True,correct
+B64-0703174041,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3788146458936778,0,0,3,True,correct
+B64-0703182655,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.6527072002797203,1,1,2,True,correct
+B64-0704125625,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6500504934414508,1,1,1,True,correct
+B64-0704135354,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.5711841969693513,1,0,4,False,false_positive
+B64-0716133843,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.7795776087849658,1,1,2,True,correct
+B64-0716151334,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.24638273537785074,0,0,0,True,correct
+B64-0716161049,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.30303079555879264,0,0,3,True,correct
+B64-0716165138,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2487354411058614,0,0,0,True,correct
+B64-0716171843,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.66167137116924,1,1,0,True,correct
+B64-0716180551,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3109341613738192,0,0,4,True,correct
+B64-0716190017,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.7385396614006624,1,1,1,True,correct
+B64-0717120236,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.22117560065390662,0,0,2,True,correct
+B64-0717123232,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3751417740125659,0,0,1,True,correct
+B64-0717132327,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6493699071509883,1,1,0,True,correct
+B64-0717145537,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3593426360974795,0,0,1,True,correct
+B64-0717152526,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.29749520638254945,0,0,3,True,correct
+B65-0703141218,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6432798323779924,1,1,4,True,correct
+B65-0703175656,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.34938406695746016,0,0,3,True,correct
+B65-0703184425,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.3924146959310965,0,1,3,False,false_negative
+B65-0704113651,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.2701368953389197,0,0,2,True,correct
+B65-0704122454,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.32562993815494856,0,0,4,True,correct
+B65-0704135758,1,indirect_strike,500 (100%),1,Indiect,Contact,No CH contact,Blade contact,Near tip,0.6399397902852043,1,1,2,True,correct
+B65-0716132835,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5829866906412837,1,1,3,True,correct
+B65-0716152854,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.5688182705761914,1,1,3,True,correct
+B65-0716160219,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.47314323989599644,0,0,0,True,correct
+B65-0716165935,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.424791980156697,0,0,4,True,correct
+B65-0716173841,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.286638744137085,0,0,2,True,correct
+B65-0716180839,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.7487029393642358,1,1,0,True,correct
+B65-0716183453,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.1955369365981895,0,0,0,True,correct
+B67-0703134817,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.28399843843010214,0,0,1,True,correct
+B67-0703174220,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.3826421519046807,0,1,1,False,false_negative
+B67-0703182811,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.7179509618818332,1,1,1,True,correct
+B67-0704122929,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.6384426127649437,1,1,0,True,correct
+B67-0704133245,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.25976691408586833,0,0,4,True,correct
+B67-0716152748,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.45695088283174506,0,1,4,False,false_negative
+B67-0716170117,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.47090842548429157,0,0,1,True,correct
+B67-0716172919,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2126422025496678,0,0,1,True,correct
+B67-0716181841,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2438329737728508,0,0,4,True,correct
+B67-0716183814,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.31871586645207406,0,0,4,True,correct
+B67-0717115729,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.42464203828134295,0,0,2,True,correct
+B67-0717124104,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.5638779443684061,1,1,0,True,correct
+B67-0717131322,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.41412882753669616,0,0,2,True,correct
+B67-0717145407,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.3641035594080796,0,1,3,False,false_negative
+B67-0717152051,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3412764704241025,0,0,3,True,correct
+B67-0806132225,1,direct_strike,400 (70%),3,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.7702458917179135,1,1,4,True,correct
+B67-0806134156,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.4338633243111144,0,0,1,True,correct
+B67-0806140643,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.5856901104645688,1,1,1,True,correct
+B67-0806143112,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Near tip,0.8013590697306919,1,1,1,True,correct
+B67-0806155637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.5778035227812814,1,0,3,False,false_positive
+B67-0806161636,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.8168915905721829,1,1,4,True,correct
+B67-0806171411,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.2472602376748457,0,0,0,True,correct
+B67-0806173643,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.46840590352968814,0,0,2,True,correct
+B67-0806180334,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.25825571564695615,0,0,2,True,correct
+B68-0703133905,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3117376688963847,0,0,3,True,correct
+B68-0703175851,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.43357456739116845,0,0,4,True,correct
+B68-0704115116,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.5114451194892888,1,1,0,True,correct
+B68-0704134408,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.395890004235349,0,0,4,True,correct
+B68-0716134028,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3711560801630474,0,0,2,True,correct
+B68-0716151507,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.22777595107707188,0,0,3,True,correct
+B68-0716161555,1,direct_strike,400 (100%),2,Direct,Contact,No CH contact,Blade contact,Near tip,0.7308193669866089,1,1,2,True,correct
+B69-0703140920,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.8095413477439523,1,1,3,True,correct
+B69-0703174917,1,direct_strike,500 (100%),2,Direct,Contact,No CH contact,Blade contact,Near hub,0.6305411155343257,1,1,1,True,correct
+B69-0703182956,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.423288869688404,0,0,4,True,correct
+B69-0704114624,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.477616220243246,0,0,4,True,correct
+B69-0704124202,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.18214842678470108,0,0,2,True,correct
+B69-0704134239,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5481592386649525,1,1,0,True,correct
+B69-0716112716,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.27641999186746236,0,0,3,True,correct
+B69-0716131707,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2872050807006101,0,0,4,True,correct
+B69-0716135923,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.4150935891005333,0,0,2,True,correct
+B69-0716144306,1,direct_strike,400 (100%),2,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.7555864216749089,1,1,3,True,correct
+B69-0716164624,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.5741170406890314,1,1,1,True,correct
+B74-0703135949,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.41415695225739196,0,0,4,True,correct
+B74-0704112054,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.7122608582052851,1,1,0,True,correct
+B74-0704125002,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.23248090067119437,0,0,1,True,correct
+B74-0704134740,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.8291217340251433,1,1,2,True,correct
+B74-0716131340,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.29367131460534845,0,0,4,True,correct
+B74-0716152423,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2732827688818341,0,0,4,True,correct
+B74-0716155726,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5192242289177567,1,1,1,True,correct
+B74-0716165614,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2644475991104698,0,0,3,True,correct
+B74-0716173017,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.28058196101796523,0,0,0,True,correct
+B74-0716181134,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.8012982172648472,1,1,0,True,correct
+B74-0717115102,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.4937686160544804,1,1,4,True,correct
+B74-0717124215,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2455980050945625,0,0,2,True,correct
+B74-0717132458,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3420820813598033,0,0,4,True,correct
+B74-0717152640,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.25078053200130773,0,0,1,True,correct
+B75-0703173825,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.4442999270464238,0,0,4,True,correct
+B75-0703185450,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.27664920298866424,0,0,2,True,correct
+B75-0704113004,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.8275900088647641,1,1,1,True,correct
+B75-0704125416,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.6909109897682727,1,1,2,True,correct
+B75-0716133640,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.35300327126391956,0,0,4,True,correct
+B75-0716152557,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2610444366684752,0,0,4,True,correct
+B75-0716155312,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.37633297268575344,0,1,0,False,false_negative
+B75-0716165306,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.30574376591586283,0,0,2,True,correct
+B75-0716181322,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3719924563985478,0,0,2,True,correct
+B75-0716185258,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.6998215709280061,1,1,1,True,correct
+B75-0717115540,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2809538250714194,0,0,1,True,correct
+B75-0717124403,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.5075127469290804,1,1,0,True,correct
+B75-0717131745,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5086973024016892,1,1,0,True,correct
+B75-0717145832,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,0.7067326125895553,1,1,1,True,correct
+B75-0717152936,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3831599958393006,0,0,0,True,correct
+B75-0806132845,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.5571885237570796,1,0,1,False,false_positive
+B75-0806134558,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.6370693638139813,1,1,0,True,correct
+B75-0806141032,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.43160382822028753,0,0,1,True,correct
+B75-0806142519,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5901083742982551,1,1,3,True,correct
+B75-0806160726,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,0.6286441758734653,1,1,0,True,correct
+B75-0806164125,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.6394336544592473,1,1,3,True,correct
+B75-0806171105,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.8261694297515012,1,1,1,True,correct
+B75-0806173815,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3254244050059416,0,0,1,True,correct
+B75-0806180444,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3008098004608077,0,0,3,True,correct
+B75-0806181311,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.8285114445948325,1,1,4,True,correct
+B76-0703140137,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.37122065551096584,0,0,0,True,correct
+B76-0703175218,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.554328905774943,1,1,2,True,correct
+B76-0703184838,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.6993543642802478,1,1,4,True,correct
+B76-0704113249,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.7428141323673068,1,1,2,True,correct
+B76-0704123317,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.5391701072543736,1,1,2,True,correct
+B76-0704132834,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.5495951566306008,1,0,3,False,false_positive
+B76-0716131853,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.30337450257183074,0,0,0,True,correct
+B76-0716152314,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3211624396828625,0,0,3,True,correct
+B76-0716155619,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.5122245174243245,1,1,2,True,correct
+B76-0716165809,1,direct_strike,400 (100%),2,Direct,Contact,No CH contact,Blade contact,Near tip,0.8049912758912311,1,1,3,True,correct
+B76-0716172344,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.6340879208174043,1,1,2,True,correct
+B76-0716180414,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.18472242660196841,0,0,1,True,correct
+B76-0717114435,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.5375143749958599,1,0,3,False,false_positive
+B76-0717123417,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.4585264690191089,0,1,3,False,false_negative
+B76-0717132716,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3435533691236157,0,0,2,True,correct
+B76-0717150455,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,0.7372621387919492,1,1,3,True,correct
+B76-0717153432,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.34379152065508545,0,0,1,True,correct
+B76-0806132559,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.24713282067043807,0,0,2,True,correct
+B76-0806134449,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.326748021655574,0,1,4,False,false_negative
+B76-0806142702,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.36950152392462515,0,0,1,True,correct
+B76-0806144250,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3220293054223627,0,0,3,True,correct
+B76-0806155800,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.22801615206921425,0,0,0,True,correct
+B76-0806161900,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.33188366910549444,0,0,2,True,correct
+B76-0806164443,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6905350779634469,1,1,3,True,correct
+B76-0806170715,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.7053731238633869,1,1,2,True,correct
+B76-0806172759,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.2820252540580112,0,0,0,True,correct
+B76-0806175906,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.6718898249841894,1,1,2,True,correct
+B76-0806182401,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.6930247398164843,1,1,2,True,correct
+B77-0102020905,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.6341938935760079,1,1,4,True,correct
+B77-0102022635,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.32013179802900404,0,0,0,True,correct
+B77-0102023924,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.5881442381804335,1,1,2,True,correct
+B77-0102031024,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.46098338826222995,0,0,3,True,correct
+B77-0102032311,1,indirect_strike,400 (70%),1,Indirect,Contact,No CH contact,Blade contact,Near tip,0.6550089419910619,1,1,3,True,correct
+B77-0102054611,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.42723463559889413,0,0,0,True,correct
+B77-0102061252,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.2903895376350951,0,0,3,True,correct
+B77-0102145837,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.31633008860019207,0,0,4,True,correct
+B77-0102164216,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.8693510100651269,1,1,1,True,correct
+B77-0102171842,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.32251272536599473,0,0,0,True,correct
+B77-0102181847,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.29216668026151676,0,0,0,True,correct
+B77-0102185739,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.6210982019790958,1,1,4,True,correct
+B77-0102191805,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.41762333125510953,0,1,2,False,false_negative
+B77-0102200820,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.28776661059983905,0,0,2,True,correct
+B77-0103132444,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3579749327163923,0,0,1,True,correct
+B77-0103135307,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.31512863492334514,0,0,3,True,correct
+B77-0103143826,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.5985052974263636,1,1,3,True,correct
+B77-0103161613,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.7983369799867253,1,1,4,True,correct
+B77-0103164602,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.8168634712275695,1,1,1,True,correct
+B77-0703133322,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.5066343229446846,1,0,4,False,false_positive
+B77-0703173716,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.8325158889801255,1,1,1,True,correct
+B77-0703183749,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.21265731349918637,0,0,2,True,correct
+B77-0704114806,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.8186302969244148,1,1,0,True,correct
+B77-0704122348,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.21991814590940362,0,0,1,True,correct
+B77-0704135945,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.35729552280135063,0,0,3,True,correct
+B78-0104234903,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.7444672488428447,1,1,2,True,correct
+B78-0105001037,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.2150273129669548,0,0,3,True,correct
+B78-0105002356,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.23866903025831615,0,0,3,True,correct
+B78-0105004835,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.38420879984367495,0,0,1,True,correct
+B78-0105010709,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.29334204583617635,0,0,3,True,correct
+B78-0105024336,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.5875039630119853,1,1,1,True,correct
+B78-0105033431,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.5860552843923671,1,1,0,True,correct
+B78-0105041931,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Center,0.7788393297971226,1,1,1,True,correct
+B78-0105043507,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,0.7542564913212079,1,1,4,True,correct
+B78-0703133546,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.3228597724182061,0,0,1,True,correct
+B78-0703175537,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Absolute tip,0.7083734336816627,1,1,4,True,correct
+B78-0703185255,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.8117951691153638,1,1,3,True,correct
+B78-0704114429,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.4432580084306482,0,1,4,False,false_negative
+B78-0704122756,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.2833434497999305,0,0,3,True,correct
+B78-0716131632,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.26977654660435313,0,0,2,True,correct
+B78-0716152149,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2620593045566852,0,0,1,True,correct
+B78-0716160647,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Center,0.5555909949813834,1,1,4,True,correct
+B78-0716164443,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.19641126101938955,0,0,4,True,correct
+B78-0716173218,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.45237020321189814,0,1,1,False,false_negative
+B78-0716181522,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.26893668425731765,0,0,0,True,correct
+B78-0716184958,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.34932428599177034,0,0,2,True,correct
+B78-0717115002,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.4455768682852456,0,0,0,True,correct
+B78-0717122800,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.3420908459093201,0,0,1,True,correct
+B78-0717132150,0,no_contact,400 (100%),0,,No contact,No CH contact,No blade contact,,0.2652562317720982,0,0,0,True,correct
+B78-0717150829,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,0.2831253149280452,0,1,3,False,false_negative
+B78-0717153803,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.3206566069009416,0,0,4,True,correct
+B79-0703134159,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Absolute tip,0.5403973766649236,1,1,3,True,correct
+B79-0703175031,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.27652006615261343,0,0,1,True,correct
+B79-0703185632,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.6637589350136579,1,1,0,True,correct
+B79-0704112227,1,direct_strike,500 (100%),1,Direct,Contact,No CH contact,Blade contact,Absolute tip,0.6713923227881511,1,1,4,True,correct
+B79-0704122208,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.2660803369943751,0,0,4,True,correct
+B79-0704135041,0,no_contact,500 (100%),0,,No contact,No CH contact,No blade contact,,0.2784027688365404,0,0,2,True,correct
+B79-0716132503,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Center,0.3506055592359914,0,1,2,False,false_negative

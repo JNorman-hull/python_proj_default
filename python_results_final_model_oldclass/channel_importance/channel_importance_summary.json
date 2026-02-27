@@ -1,0 +1,21 @@
+{
+  "permutation_importance": {
+    "n_permutations": 20,
+    "baseline_accuracy": 1.0,
+    "most_important": "higacc_z_g",
+    "least_important": "pressure_kpa",
+    "top_3_channels": [
+      "higacc_z_g",
+      "higacc_x_g",
+      "higacc_y_g"
+    ]
+  },
+  "ablation_study": {
+    "configurations_tested": 3,
+    "higacc_only_accuracy": 0.9581589958158996,
+    "higacc_plus_pressure_accuracy": 0.9456066945606695,
+    "full_suite_accuracy": 0.9581589958158996,
+    "accuracy_gain_minimal_to_full": 0.0,
+    "publication_claim": "High-acceleration sensors alone achieve 95.8% accuracy. Adding all remaining sensors improves performance by 0.0 percentage points."
+  }
+}

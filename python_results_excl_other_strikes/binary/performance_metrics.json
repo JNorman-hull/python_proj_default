@@ -1,0 +1,72 @@
+{
+  "model": "MiniRocket + RidgeClassifierCV (Binary)",
+  "n_samples": 233,
+  "n_strikes": 93,
+  "n_no_strikes": 140,
+  "strike_rate": 0.39914163090128757,
+  "class_weight": 1.5053763440860215,
+  "n_channels": 10,
+  "max_sequence_length": 401,
+  "channels": [
+    "higacc_x_g",
+    "higacc_y_g",
+    "higacc_z_g",
+    "inacc_x_ms",
+    "inacc_y_ms",
+    "inacc_z_ms",
+    "rot_x_degs",
+    "rot_y_degs",
+    "rot_z_degs",
+    "pressure_kpa"
+  ],
+  "cross_validation": {
+    "n_folds": 5,
+    "mean_auc": 0.9958020050125314,
+    "mean_accuracy": 0.9828862164662351,
+    "mean_sensitivity": 0.9783625730994151,
+    "mean_specificity": 0.9857142857142858,
+    "mean_precision": 0.980952380952381,
+    "mean_f1": 0.9788803088803089,
+    "std_auc": 0.0034750437653789357,
+    "std_accuracy": 0.015947723914530938,
+    "std_sensitivity": 0.026516453915215538,
+    "std_specificity": 0.02857142857142856,
+    "std_precision": 0.03809523809523809,
+    "std_f1": 0.019060849695520347
+  },
+  "out_of_fold_performance": {
+    "roc_auc": 0.9951612903225807,
+    "pr_auc": 0.9936145480398832,
+    "overall_accuracy": 0.9699570815450643,
+    "sensitivity": 0.9354838709677419,
+    "specificity": 0.9928571428571429,
+    "precision": 0.9886363636363636,
+    "f1_score": 0.9613259668508287,
+    "optimal_threshold": 0.49564509896014297,
+    "confusion_matrix": {
+      "tn": 139,
+      "fp": 1,
+      "fn": 6,
+      "tp": 87
+    }
+  },
+  "performance_by_strike_type": {
+    "leading_direct": {
+      "n_files": 70,
+      "accuracy": 0.9571428571428572
+    },
+    "leading_indirect": {
+      "n_files": 23,
+      "accuracy": 0.8695652173913043
+    },
+    "no_contact": {
+      "n_files": 140,
+      "accuracy": 0.9928571428571429
+    }
+  },
+  "misclassified": {
+    "total": 7,
+    "false_positives": 1,
+    "false_negatives": 6
+  }
+}

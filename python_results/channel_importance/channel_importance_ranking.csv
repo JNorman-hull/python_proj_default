@@ -1,9 +1,9 @@
 channel_idx,channel_name,channel_group,mean_accuracy_drop,std_accuracy_drop,mean_indirect_acc_drop,std_indirect_acc_drop,n_successful,rank,pct_contribution
-2,higacc_z_g,High Acceleration,0.08661087866108788,0.013237901271595288,0.02166666666666666,0.01907587190376599,20,1,91.79600886917962
-0,higacc_x_g,High Acceleration,0.0077405857740585615,0.003806151757041913,0.0,0.0,20,2,8.203991130820382
-1,higacc_y_g,High Acceleration,0.0,0.0,0.0,0.0,20,3,0.0
-3,inacc_x_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,4,0.0
-4,inacc_y_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,5,0.0
+2,higacc_z_g,High Acceleration,0.06201550387596901,0.011031201140122274,0.0,0.0,20,1,61.89555125725338
+0,higacc_x_g,High Acceleration,0.03178294573643413,0.009541498934179177,0.006521739130434778,0.01552484440987575,20,2,31.72147001934237
+1,higacc_y_g,High Acceleration,0.00620155038759691,0.003334234599628931,0.0,0.0,20,3,6.189555125725347
+4,inacc_y_ms,Internal Acceleration,0.00019379844961240345,0.0008447478572753258,0.0,0.0,20,4,0.1934235976789171
+3,inacc_x_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,5,0.0
 5,inacc_z_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,6,0.0
 6,rot_x_degs,Rotation,0.0,0.0,0.0,0.0,20,7,0.0
 7,rot_y_degs,Rotation,0.0,0.0,0.0,0.0,20,8,0.0

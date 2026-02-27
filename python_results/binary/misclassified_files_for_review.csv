@@ -1,11 +1,15 @@
-file,blade_strike,strike_type,treatment,n_contact,c_1_type,clear_passage,centre_hub_contact,blade_contact,c_1_bl,probability,y_pred,y_true,cv_fold,correct,error_type
-B61-0716152814,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.4109760962750897,0,1,0,False,false_negative
-B67-0703174220,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.3651558550790897,0,1,1,False,false_negative
-B67-0717145407,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.3754900048644724,0,1,3,False,false_negative
-B67-0806155637,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.5318875691033373,1,0,3,False,false_positive
-B74-0717115102,1,direct_strike,400 (100%),1,Direct,Contact,No CH contact,Blade contact,Near tip,0.457715431272874,0,1,4,False,false_negative
-B75-0716155312,1,indirect_strike,400 (100%),1,Indirect,Contact,No CH contact,Blade contact,Near hub,0.3961118965759363,0,1,0,False,false_negative
-B76-0806134449,1,direct_strike,400 (70%),1,Direct,Contact,No CH contact,Blade contact,Near hub,0.42787562827695425,0,1,4,False,false_negative
-B78-0105004835,0,no_contact,400 (70%),0,,No contact,No CH contact,No blade contact,,0.4893224817491324,1,0,1,False,false_positive
-B78-0704114429,1,indirect_strike,500 (100%),1,Indirect,Contact,No CH contact,Blade contact,Pressure side,0.35326173041241105,0,1,4,False,false_negative
-B78-0717150829,1,direct_strike,400 (70%),2,Direct,Contact,No CH contact,Blade contact,Center,0.4333729733506475,0,1,3,False,false_negative
+file,blade_strike,strike_type,treatment,passage_type,leading_type,other_type,passage_severity,probability,y_pred,y_true,cv_fold,correct,error_type
+B61-0102003600,0,no_contact,400 (70%),No contact,,,0,0.4725493977832923,1,0,0,False,false_positive
+B61-0102042637,0,no_contact,400 (70%),No contact,,,0,0.6645943063994155,1,0,0,False,false_positive
+B61-0716152814,1,other_impeller_surface,400 (100%),Other impeller collision,,Impeller surface,1,0.3811701155581279,0,1,1,False,false_negative
+B63-0717130205,0,no_contact,400 (70%),No contact,,,0,0.5080057411661777,1,0,1,False,false_positive
+B64-0704135354,0,no_contact,500 (100%),No contact,,,0,0.516031476977963,1,0,4,False,false_positive
+B67-0703174220,1,other_impeller_surface,500 (100%),Other impeller collision,,Impeller surface,1,0.39992308198471865,0,1,2,False,false_negative
+B67-0806155637,0,no_contact,400 (70%),No contact,,,0,0.5194715672358914,1,0,4,False,false_positive
+B74-0717115102,1,leading_direct,400 (100%),Leading edge strike,Direct,,3,0.40692585786223745,0,1,3,False,false_negative
+B76-0704132834,0,no_contact,500 (100%),No contact,,,0,0.4679635061208563,1,0,1,False,false_positive
+B76-0716155619,1,other_impeller_surface,400 (100%),Other impeller collision,,Impeller surface,1,0.45472673647154055,0,1,4,False,false_negative
+B76-0717114435,0,no_contact,400 (100%),No contact,,,0,0.5164645375981283,1,0,0,False,false_positive
+B77-0102052047,1,other_impeller_hub,400 (70%),Other impeller collision,,Impeller hub,1,0.4167030929004597,0,1,4,False,false_negative
+B77-0103143826,1,other_impeller_surface,400 (100%),Other impeller collision,,Impeller surface,1,0.4182776894204542,0,1,4,False,false_negative
+B78-0105004835,0,no_contact,400 (70%),No contact,,,0,0.5038314742245905,1,0,1,False,false_positive

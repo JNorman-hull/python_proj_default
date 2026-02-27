@@ -1,0 +1,8 @@
+channel_idx,channel_name,channel_group,mean_accuracy_drop,std_accuracy_drop,mean_indirect_acc_drop,std_indirect_acc_drop,n_successful,rank,pct_contribution
+3,rot_x_degs,Rotation,0.0882845188284519,0.009892544282457647,0.05666666666666664,0.03511884584284246,20,1,73.01038062283737
+6,pressure_kpa,Pressure,0.03158995815899582,0.009854866705701982,0.033333333333333326,0.02357022603955158,20,2,26.124567474048444
+2,inacc_z_ms,Internal Acceleration,0.0010460251046024993,0.001811768627164078,0.0,0.0,20,3,0.8650519031141776
+0,inacc_x_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,4,0.0
+1,inacc_y_ms,Internal Acceleration,0.0,0.0,0.0,0.0,20,5,0.0
+4,rot_y_degs,Rotation,0.0,0.0,0.0,0.0,20,6,0.0
+5,rot_z_degs,Rotation,0.0,0.0,0.0,0.0,20,7,0.0

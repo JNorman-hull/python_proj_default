@@ -1,0 +1,13 @@
+method,n,TP,TN,FP,FN,FPR,FNR,precision,recall,F1,accuracy,strike_type,n_files
+MiniRocket,140,0,138,2,0,0.0143,,0.0,,,0.9857,no_contact,140
+MiniRocket,30,26,0,0,4,,0.1333,1.0,0.8667,0.9286,0.8667,indirect_strike,30
+MiniRocket,69,65,0,0,4,,0.058,1.0,0.942,0.9701,0.942,direct_strike,69
+Threshold_95g,140,0,124,16,0,0.1143,,0.0,,,0.8857,no_contact,140
+Threshold_95g,30,26,0,0,4,,0.1333,1.0,0.8667,0.9286,0.8667,indirect_strike,30
+Threshold_95g,69,69,0,0,0,,0.0,1.0,1.0,1.0,1.0,direct_strike,69
+Threshold_200g,140,0,131,9,0,0.0643,,0.0,,,0.9357,no_contact,140
+Threshold_200g,30,23,0,0,7,,0.2333,1.0,0.7667,0.8679,0.7667,indirect_strike,30
+Threshold_200g,69,69,0,0,0,,0.0,1.0,1.0,1.0,1.0,direct_strike,69
+Threshold_400g,140,0,135,5,0,0.0357,,0.0,,,0.9643,no_contact,140
+Threshold_400g,30,19,0,0,11,,0.3667,1.0,0.6333,0.7755,0.6333,indirect_strike,30
+Threshold_400g,69,64,0,0,5,,0.0725,1.0,0.9275,0.9624,0.9275,direct_strike,69
