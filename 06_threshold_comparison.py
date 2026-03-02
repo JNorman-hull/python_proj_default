@@ -145,14 +145,14 @@ METHOD_LABELS = {
 
 # ── Fig 1: FPR / FNR ─────────────────────────────────────────────────────────
 cm_conv = 1 / 2.54
-fig, ax = plt.subplots(figsize=(14 * cm_conv, 8 * cm_conv), dpi=300)
+fig, ax = plt.subplots(figsize=(9 * cm_conv, 5.5 * cm_conv), dpi=300)
 error_types  = ["FPR", "FNR"]
 error_labels = [
-    "False Positive Rate (%)",
-    "False Negative Rate (%))"
+    "FPR (%)",
+    "FNR (%)"
 ]
 n_methods    = len(method_labels)
-group_w      = 0.75
+group_w      = 1
 bar_w        = group_w / n_methods
 group_positions = np.arange(len(error_types))
 
@@ -161,7 +161,7 @@ for i, lbl in enumerate(method_labels):
     offsets = group_positions + (i - n_methods / 2 + 0.5) * bar_w
     vals = [100 * metrics_df.loc[metrics_df["method"] == lbl, et].values[0]
             for et in error_types]
-    bars = ax.bar(offsets, vals, width=bar_w * 0.9,
+    bars = ax.bar(offsets, vals, width=bar_w,
                   color=col, edgecolor="black", label=METHOD_LABELS[lbl])
     for bar, v in zip(bars, vals):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.8,
@@ -182,10 +182,8 @@ ax.spines["left"].set_linewidth(1.0)
 ax.spines["bottom"].set_linewidth(1.0)
 ax.yaxis.grid(True, linestyle="--", linewidth=0.6, color="#dddddd", zorder=0)
 ax.set_axisbelow(True)
-
-ax.legend(fontsize=10, loc="upper right")
 plt.tight_layout()
-plt.savefig(f"{OUTDIR}/fpr_fnr_comparison.svg", dpi=300)
+plt.savefig(f"{OUTDIR}/fpr_fnr_comparison.svg", dpi=300, transparent=True)
 plt.close()
 
 # ── Fig 2: Accuracy by strike type ───────────────────────────────────────────
@@ -195,7 +193,7 @@ stype_order  = ["no_contact", "leading_indirect", "leading_direct",
 stype_labels = ["No Contact", "Leading Indirect", "Leading Direct",
                 "Other: Hub", "Other: Surface"]
 n_types = len(stype_order)
-bar_w2  = 0.75 / n_methods
+bar_w2 = 0.7 / n_methods
 
 for i, lbl in enumerate(method_labels):
     offsets = np.arange(n_types) + (i - n_methods / 2 + 0.5) * bar_w2
@@ -203,7 +201,7 @@ for i, lbl in enumerate(method_labels):
     for stype in stype_order:
         sub = by_type_df[(by_type_df["method"] == lbl) & (by_type_df["strike_type"] == stype)]
         accs.append(sub["accuracy"].values[0] if len(sub) > 0 else 0)
-    ax.bar(offsets, accs, width=bar_w2 * 0.9,
+    ax.bar(offsets, accs, width=bar_w2,
            color=METHOD_COLORS[lbl], edgecolor="black", label=METHOD_LABELS[lbl])
 
 ax.set_xticks(np.arange(n_types))
@@ -225,9 +223,10 @@ VAN_ESCH_P = {
     "400 (70%)":  0.50,
 }
 OBSERVED2 = {
+    "All data": {"n": 355, "k": 159},
     "400 (100%)": {"n": 130, "k": 51},
     "400 (70%)":  {"n": 117, "k": 57},
-    "500 (100%)": {"n": 108, "k": 48},
+    "500 (100%)": {"n": 108, "k": 51},
 }
 
 obs_file = (
@@ -259,12 +258,37 @@ except Exception as e:
 
 # ── Fig 3: Strike probability by treatment ────────────────────────────────────
 
+overall_rows = []
+for lbl, preds in methods.items():
+    n = len(df)
+    k = preds.sum()
+    p, lo, hi = wilson_ci(k, n)
+
+    overall_rows.append({
+        "method": lbl,
+        "treatment": "All data",
+        "n_fish": n,
+        "n_true_strike": int(df["y_true"].sum()),
+        "n_pred_strike": int(k),
+        "strike_prob": p,
+        "ci_lower": lo,
+        "ci_upper": hi,
+    })
+
+prob_df = pd.concat([prob_df, pd.DataFrame(overall_rows)], ignore_index=True)
+
+OBSERVED["All data"] = {
+    "n": len(obs_file),
+    "k": int(obs_file["strike"].sum())
+}
+
 cm = 1 / 2.54
 fig, ax = plt.subplots(figsize=(24 * cm, 14 * cm))
 
 all_methods_plot = [ "Van Esch","Observed2", "Observed", "MiniRocket",
                     "Threshold_400g", "Threshold_200g", "Threshold_95g"]
-tx_order = ["500 (100%)", "400 (100%)", "400 (70%)"]
+tx_order = ["All data", "500 (100%)", "400 (100%)", "400 (70%)"]
+tx_x = {tx: i for i, tx in enumerate(tx_order)}
 
 # Subgroup offsets: no gap within group, inter_gap between groups
 bar_w         = 0.09
@@ -284,11 +308,26 @@ for sg_i, sg in enumerate(subgroup_sizes):
 # dark methods get white text inside bars
 dark_methods = {"Observed", "MiniRocket"}
 
+alldata_offsets = {
+    "Observed2":  -bar_w,
+    "Observed":    0,
+    "MiniRocket":  bar_w,
+}
+
+# Track which labels have been added to legend
+legend_added = set()
 
 for i, lbl in enumerate(all_methods_plot):
     col = METHOD_COLORS[lbl]
     for j, tx in enumerate(tx_order):
-        x_pos = j + offsets_within[i]
+        if tx == "All data" and lbl not in ["MiniRocket", "Observed", "Observed2"]:
+            continue
+
+        # ── Use compact offsets for All data, normal for treatments ──
+        if tx == "All data":
+            x_pos = tx_x[tx] + alldata_offsets[lbl]
+        else:
+            x_pos = tx_x[tx] + offsets_within[i]
 
         if lbl == "Van Esch":
             p_hat = VAN_ESCH_P[tx]
@@ -309,39 +348,37 @@ for i, lbl in enumerate(all_methods_plot):
             ci_hi = sub["ci_upper"].values[0]
             n_ref = int(sub["n_fish"].values[0])
 
+        # ── Legend: first time this label is plotted ──
+        leg_label = METHOD_LABELS[lbl] if lbl not in legend_added else "_nolegend_"
+        legend_added.add(lbl)
+
         ax.bar(x_pos, p_hat, width=bar_w,
                color=col, edgecolor="black", linewidth=0.6,
-               label=METHOD_LABELS[lbl] if j == 0 else "_nolegend_")
+               label=leg_label)
         ax.errorbar(x_pos, p_hat,
                     yerr=[[p_hat - ci_lo], [ci_hi - p_hat]],
                     fmt="none", color="#333333", capsize=2.5, lw=1.0, capthick=1.0)
 
         txt_col = "white" if lbl in dark_methods else "black"
-
-        # percentage label at y=0.08
         ax.text(x_pos, 0.08, f"{p_hat*100:.2f}%",
                 ha="center", va="bottom", fontsize=6.5,
                 rotation=90, color=txt_col, fontweight="bold")
-
-        # n= label at y=0.30, italic
         ax.text(x_pos, 0.20, f"n={n_ref}",
                 ha="center", va="bottom", fontsize=6,
                 rotation=90, color=txt_col, style="italic")
 
-# ── Spines ────────────────────────────────────────────────────────────────────
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.spines["left"].set_position(("outward", 5))
 ax.spines["bottom"].set_position(("outward", 5))
 ax.spines["left"].set_bounds(0, 1.0)
-ax.spines["bottom"].set_bounds(0, 2.0)
+ax.spines["bottom"].set_bounds(tx_x["All data"], tx_x["400 (70%)"])
 ax.spines["left"].set_linewidth(1.0)
 ax.spines["bottom"].set_linewidth(1.0)
 
-# ── Grid & axes ───────────────────────────────────────────────────────────────
 ax.yaxis.grid(True, linestyle="--", linewidth=0.6, color="#dddddd", zorder=0)
 ax.set_axisbelow(True)
-ax.set_xticks(np.arange(len(tx_order)))
+ax.set_xticks([tx_x[tx] for tx in tx_order])
 ax.set_xticklabels(tx_order, fontsize=11)
 ax.set_yticks(np.arange(0, 1.1, 0.1))
 ax.set_ylim(0, 1.0)
