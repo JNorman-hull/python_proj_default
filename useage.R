@@ -31,6 +31,8 @@ use_condaenv("pump_rocket", required = TRUE)
 
 source_python("01_binary_model.py")
 
+source_python("011_binary_figs.py")
+
 source_python("02_multiclass_model.py")
 
 source_python("03_channel_importance.py")
