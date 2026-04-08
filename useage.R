@@ -13,7 +13,7 @@ use_condaenv("pump_rocket", required = TRUE)
 # Start Python REPL
 #repl_python()
 
-#py_install("package", envname = "pump_rocket", pip = TRUE)
+#py_install("numba", envname = "pump_rocket", pip = TRUE)
 # py_install(
 #   packages = c(
 #     "numpy==1.24.3",           # Array operations

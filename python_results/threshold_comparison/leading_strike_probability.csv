@@ -1,0 +1,5 @@
+method,treatment,n_fish,n_pred_strike,strike_prob,ci_lower,ci_upper
+MiniRocket_leading,400 (100%),93,31,0.3333,0.2458,0.4341
+MiniRocket_leading,400 (70%),74,39,0.527,0.4148,0.6366
+MiniRocket_leading,500 (100%),66,30,0.4545,0.3402,0.5739
+MiniRocket_leading,All data,233,100,0.4292,0.3673,0.4934

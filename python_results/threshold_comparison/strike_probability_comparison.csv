@@ -1,13 +1,70 @@
-method,treatment,n_fish,n_true_strike,n_pred_strike,strike_prob,ci_lower,ci_upper
-MiniRocket,400 (100%),102,40,37,0.3627,0.276,0.4595
-MiniRocket,400 (70%),80,40,44,0.55,0.4412,0.6542
-MiniRocket,500 (100%),76,38,39,0.5132,0.4029,0.6222
-Threshold_95g,400 (100%),102,40,44,0.4314,0.3395,0.5283
-Threshold_95g,400 (70%),80,40,46,0.575,0.4657,0.6774
-Threshold_95g,500 (100%),76,38,38,0.5,0.3903,0.6097
-Threshold_200g,400 (100%),102,40,36,0.3529,0.2671,0.4495
-Threshold_200g,400 (70%),80,40,43,0.5375,0.429,0.6425
-Threshold_200g,500 (100%),76,38,33,0.4342,0.3286,0.5461
-Threshold_400g,400 (100%),102,40,33,0.3235,0.2406,0.4193
-Threshold_400g,400 (70%),80,40,35,0.4375,0.3341,0.5466
-Threshold_400g,500 (100%),76,38,29,0.3816,0.2806,0.494
+panel,metric,method,treatment,n,estimate,ci_95,prob_raw,ci_lo_raw,ci_hi_raw
+"A (collision, full)",collision,total_obs,500 (100%),108,47.22%,[38.06 – 56.57%],0.4722,0.3806,0.5657
+"A (collision, full)",collision,total_util,500 (100%),76,50.00%,[39.03 – 60.97%],0.5,0.3903,0.6097
+"A (collision, full)",collision,MiniRocket,500 (100%),76,51.31%,[40.29 – 62.22%],0.5131,0.4029,0.6222
+"A (collision, full)",collision,esch_2014,500 (100%),76,38.66%,[28.06 – 49.40%],0.3866,0.2806,0.494
+"A (collision, full)",collision,cen_2025,500 (100%),76,45.33%,[34.08 – 55.90%],0.4533,0.3408,0.559
+"A (collision, full)",collision,Threshold_400g,500 (100%),76,38.16%,[28.06 – 49.40%],0.3816,0.2806,0.494
+"A (collision, full)",collision,Threshold_200g,500 (100%),76,43.42%,[32.86 – 54.61%],0.4342,0.3286,0.5461
+"A (collision, full)",collision,Threshold_95g,500 (100%),76,50.00%,[39.03 – 60.97%],0.5,0.3903,0.6097
+"B (mortality, full)",mortality,total_util,500 (100%),76,19.40%,[12.34 – 30.04%],0.194,0.1234,0.3004
+"B (mortality, full)",mortality,MiniRocket,500 (100%),76,19.91%,[12.34 – 30.04%],0.1991,0.1234,0.3004
+"B (mortality, full)",mortality,esch_2014,500 (100%),76,38.19%,[28.06 – 49.40%],0.3819,0.2806,0.494
+"B (mortality, full)",mortality,cen_2025,500 (100%),76,17.78%,[11.30 – 28.58%],0.1778,0.113,0.2858
+"C (collision, excl)",collision,total_util_leading,500 (100%),76,36.84%,[26.88 – 48.08%],0.3684,0.2688,0.4808
+"C (collision, excl)",collision,MiniRocket_leading,500 (100%),66,45.45%,[34.02 – 57.39%],0.4545,0.3402,0.5739
+"C (collision, excl)",collision,esch_2014,500 (100%),66,38.66%,[28.50 – 51.45%],0.3866,0.285,0.5145
+"C (collision, excl)",collision,cen_2025,500 (100%),66,45.33%,[34.02 – 57.39%],0.4533,0.3402,0.5739
+"C (collision, excl)",collision,Threshold_400g,500 (100%),66,40.91%,[29.87 – 52.95%],0.4091,0.2987,0.5295
+"C (collision, excl)",collision,Threshold_200g,500 (100%),66,45.45%,[34.02 – 57.39%],0.4545,0.3402,0.5739
+"C (collision, excl)",collision,Threshold_95g,500 (100%),66,48.48%,[36.85 – 60.29%],0.4848,0.3685,0.6029
+"D (mortality, excl)",mortality,total_util_leading,500 (100%),76,14.29%,[8.28 – 24.09%],0.1429,0.0828,0.2409
+"D (mortality, excl)",mortality,MiniRocket_leading,500 (100%),66,17.63%,[10.72 – 29.15%],0.1763,0.1072,0.2915
+"D (mortality, excl)",mortality,esch_2014,500 (100%),66,38.19%,[27.15 – 49.94%],0.3819,0.2715,0.4994
+"D (mortality, excl)",mortality,cen_2025,500 (100%),66,17.78%,[10.72 – 29.15%],0.1778,0.1072,0.2915
+"A (collision, full)",collision,total_obs,400 (100%),130,39.23%,[31.26 – 47.82%],0.3923,0.3126,0.4782
+"A (collision, full)",collision,total_util,400 (100%),102,39.22%,[30.30 – 48.92%],0.3922,0.303,0.4892
+"A (collision, full)",collision,MiniRocket,400 (100%),102,36.27%,[27.60 – 45.95%],0.3627,0.276,0.4595
+"A (collision, full)",collision,esch_2014,400 (100%),102,38.88%,[30.30 – 48.92%],0.3888,0.303,0.4892
+"A (collision, full)",collision,cen_2025,400 (100%),102,45.59%,[36.72 – 55.72%],0.4559,0.3672,0.5572
+"A (collision, full)",collision,Threshold_400g,400 (100%),102,32.35%,[24.06 – 41.93%],0.3235,0.2406,0.4193
+"A (collision, full)",collision,Threshold_200g,400 (100%),102,35.29%,[26.71 – 44.95%],0.3529,0.2671,0.4495
+"A (collision, full)",collision,Threshold_95g,400 (100%),102,43.14%,[33.95 – 52.83%],0.4314,0.3395,0.5283
+"B (mortality, full)",mortality,total_util,400 (100%),102,8.71%,[4.71 – 15.92%],0.0871,0.0471,0.1592
+"B (mortality, full)",mortality,MiniRocket,400 (100%),102,8.06%,[4.03 – 14.72%],0.0806,0.0403,0.1472
+"B (mortality, full)",mortality,esch_2014,400 (100%),102,26.25%,[18.88 – 35.77%],0.2625,0.1888,0.3577
+"B (mortality, full)",mortality,cen_2025,400 (100%),102,10.25%,[5.41 – 17.11%],0.1025,0.0541,0.1711
+"C (collision, excl)",collision,total_util_leading,400 (100%),102,30.39%,[22.31 – 39.90%],0.3039,0.2231,0.399
+"C (collision, excl)",collision,MiniRocket_leading,400 (100%),93,33.33%,[24.58 – 43.41%],0.3333,0.2458,0.4341
+"C (collision, excl)",collision,esch_2014,400 (100%),93,38.88%,[29.45 – 48.87%],0.3888,0.2945,0.4887
+"C (collision, excl)",collision,cen_2025,400 (100%),93,45.59%,[35.44 – 55.27%],0.4559,0.3544,0.5527
+"C (collision, excl)",collision,Threshold_400g,400 (100%),93,32.26%,[23.62 – 42.30%],0.3226,0.2362,0.423
+"C (collision, excl)",collision,Threshold_200g,400 (100%),93,35.48%,[26.51 – 45.61%],0.3548,0.2651,0.4561
+"C (collision, excl)",collision,Threshold_95g,400 (100%),93,39.78%,[30.43 – 49.95%],0.3978,0.3043,0.4995
+"D (mortality, excl)",mortality,total_util_leading,400 (100%),102,6.75%,[3.36 – 13.49%],0.0675,0.0336,0.1349
+"D (mortality, excl)",mortality,MiniRocket_leading,400 (100%),93,7.41%,[3.69 – 14.73%],0.0741,0.0369,0.1473
+"D (mortality, excl)",mortality,esch_2014,400 (100%),93,26.25%,[18.00 – 35.53%],0.2625,0.18,0.3553
+"D (mortality, excl)",mortality,cen_2025,400 (100%),93,10.25%,[5.95 – 18.67%],0.1025,0.0595,0.1867
+"A (collision, full)",collision,total_obs,400 (70%),117,48.72%,[39.85 – 57.67%],0.4872,0.3985,0.5767
+"A (collision, full)",collision,total_util,400 (70%),80,50.00%,[39.30 – 60.70%],0.5,0.393,0.607
+"A (collision, full)",collision,MiniRocket,400 (70%),80,55.00%,[44.12 – 65.42%],0.55,0.4412,0.6542
+"A (collision, full)",collision,esch_2014,400 (70%),80,55.93%,[45.34 – 66.59%],0.5593,0.4534,0.6659
+"A (collision, full)",collision,cen_2025,400 (70%),80,65.57%,[54.08 – 74.55%],0.6557,0.5408,0.7455
+"A (collision, full)",collision,Threshold_400g,400 (70%),80,43.75%,[33.41 – 54.66%],0.4375,0.3341,0.5466
+"A (collision, full)",collision,Threshold_200g,400 (70%),80,53.75%,[42.90 – 64.25%],0.5375,0.429,0.6425
+"A (collision, full)",collision,Threshold_95g,400 (70%),80,57.50%,[46.57 – 67.74%],0.575,0.4657,0.6774
+"B (mortality, full)",mortality,total_util,400 (70%),80,9.97%,[5.15 – 18.51%],0.0997,0.0515,0.1851
+"B (mortality, full)",mortality,MiniRocket,400 (70%),80,10.97%,[6.03 – 20.02%],0.1097,0.0603,0.2002
+"B (mortality, full)",mortality,esch_2014,400 (70%),80,37.76%,[27.69 – 48.45%],0.3776,0.2769,0.4845
+"B (mortality, full)",mortality,cen_2025,400 (70%),80,13.23%,[7.85 – 22.97%],0.1323,0.0785,0.2297
+"C (collision, excl)",collision,total_util_leading,400 (70%),80,42.50%,[32.26 – 53.43%],0.425,0.3226,0.5343
+"C (collision, excl)",collision,MiniRocket_leading,400 (70%),74,52.70%,[41.48 – 63.66%],0.527,0.4148,0.6366
+"C (collision, excl)",collision,esch_2014,400 (70%),74,55.93%,[44.09 – 66.18%],0.5593,0.4409,0.6618
+"C (collision, excl)",collision,cen_2025,400 (70%),74,65.57%,[54.88 – 75.95%],0.6557,0.5488,0.7595
+"C (collision, excl)",collision,Threshold_400g,400 (70%),74,41.89%,[31.32 – 53.26%],0.4189,0.3132,0.5326
+"C (collision, excl)",collision,Threshold_200g,400 (70%),74,51.35%,[40.18 – 62.39%],0.5135,0.4018,0.6239
+"C (collision, excl)",collision,Threshold_95g,400 (70%),74,54.05%,[42.78 – 64.93%],0.5405,0.4278,0.6493
+"D (mortality, excl)",mortality,total_util_leading,400 (70%),80,8.48%,[4.30 – 16.98%],0.0848,0.043,0.1698
+"D (mortality, excl)",mortality,MiniRocket_leading,400 (70%),74,10.51%,[5.58 – 19.91%],0.1051,0.0558,0.1991
+"D (mortality, excl)",mortality,esch_2014,400 (70%),74,37.76%,[27.65 – 49.23%],0.3776,0.2765,0.4923
+"D (mortality, excl)",mortality,cen_2025,400 (70%),74,13.23%,[7.51 – 23.12%],0.1323,0.0751,0.2312

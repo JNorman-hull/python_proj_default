@@ -176,10 +176,6 @@ print("\n" + "=" * 60)
 print("Overall out-of-fold performance")
 print("=" * 60)
 
-mcc_num = (tp * tn) - (fp_n * fn)
-mcc_den = np.sqrt((tp + fp_n) * (tp + fn) * (tn + fp_n) * (tn + fn))
-mcc = float(mcc_num / mcc_den) if mcc_den > 0 else 0.0
-
 final_auc = roc_auc_score(y, oof_probs)
 fpr, tpr, thresholds = roc_curve(y, oof_probs)
 precision_curve, recall_curve, _ = precision_recall_curve(y, oof_probs)
@@ -191,6 +187,10 @@ optimal_threshold = thresholds[optimal_idx]
 final_preds = (oof_probs >= optimal_threshold).astype(int)
 cm = confusion_matrix(y, final_preds)
 tn, fp_n, fn, tp = cm.ravel()
+
+mcc_num = (tp * tn) - (fp_n * fn)
+mcc_den = np.sqrt((tp + fp_n) * (tp + fn) * (tn + fp_n) * (tn + fn))
+mcc = float(mcc_num / mcc_den) if mcc_den > 0 else 0.0
 
 sensitivity = tp / (tp + fn)
 specificity = tn / (tn + fp_n)
@@ -414,6 +414,7 @@ print("Saved figures")
 cv_results.to_csv(f"{OUTDIR}/cv_predictions.csv", index=False)
 misclassified.to_csv(f"{OUTDIR}/misclassified_files_for_review.csv", index=False)
 blade_strike_predictions.to_csv(f"{OUTDIR}/blade_strike_predictions.csv", index=False)
+perf_by_type.to_csv(f"{OUTDIR}/perf_by_type.csv", index=False)
 
 metrics = {
     "model": "MiniRocket + RidgeClassifierCV (Binary)",
